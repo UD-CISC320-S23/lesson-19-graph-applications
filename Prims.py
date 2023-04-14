@@ -1,1 +1,1 @@
-#Python file for prims algorithm
+#Python file for prims algorithm for lesson
