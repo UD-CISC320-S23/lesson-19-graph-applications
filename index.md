@@ -27,12 +27,14 @@ import networkx as nx
 ```
 
 # First Problem Title
-
+Turist destinations
 **Informal Description**: 
-
+After Landing in LA, we want to see as much as possible, but we are in a time crunch. well have to see how long of a 
+dive is to be expected between destinations and pick the best path for seeing the most in the shortest amount of time
+before we have to drive back to an airport.
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: An undirected graph of tourist destinations. 
+>  * Output: minimum spanning tree of tourist destinations
 
 **Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
 
