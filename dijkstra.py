@@ -1,1 +1,1 @@
-# Testing git commands and branches asda
+# Testing git commands and branches
