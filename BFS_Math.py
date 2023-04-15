@@ -98,7 +98,23 @@ for node in adjacency_dict.keys():
 
         # add the edge between the node and the adjacent node
         G.add_edge(node, adjacent_node)
-        
-pos = nx.spring_layout(G)
-nx.draw_networkx(G, pos)
-plt.show()
+
+def bfs_path(graph, start, end):
+    # Use breadth-first search to generate a list of nodes in the path
+    bfs_tree = nx.bfs_tree(graph, start)
+    path = [end]
+    node = end
+    while node != start:
+        predecessors = list(bfs_tree.predecessors(node))
+        if not predecessors:
+            return None
+        node = predecessors[0]
+        path.append(node)
+    
+    # Reverse the path so that it goes from start to end
+    path.reverse()
+    
+    return path
+
+path = bfs_path(G, "MATH 010", "MATH 243")
+print(path)
