@@ -42,8 +42,15 @@ before we have to drive back to an airport.
 **Setup code**:
 
 ```python
-```
+import networkx as nx
+with open("tourist_destinations.txt") as data_file:
+    lines: list[str]
+    lines = data_file.readlines()
+destinations = nx.Graph()
+for line in lines:
+    nx.add_node(line)
 
+```
 **Visualization**:
 
 ![Image goes here](Relative image filename goes here)
