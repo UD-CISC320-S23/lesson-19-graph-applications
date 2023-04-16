@@ -22,7 +22,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
+# Using SSSP to find the easiest class
 
 **Informal Description**:
 Joe needs to figure out what the easiest path of prerequisites can be taken to get to ECON 490
@@ -118,7 +118,8 @@ def find_path(source: str, destination: str, g: nx.DiGraph):
 
 **Output**
 
-```(['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
+```
+(['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 ```
 
 **Interpretation of Results**:
