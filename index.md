@@ -43,12 +43,22 @@ before we have to drive back to an airport.
 
 ```python
 import networkx as nx
+edges = []
 with open("tourist_destinations.txt") as data_file:
     lines: list[str]
     lines = data_file.readlines()
 destinations = nx.Graph()
 for line in lines:
     nx.add_node(line)
+    
+with open("tourist_edges.txt") as data_file:
+    lines: list[str]
+    lines = data_file.readlines()
+for line in lines:
+    edges.append(line.split(","))
+for line in lines:
+    nx.add_edge(edges[0], edges[1],edges[2])
+    
 
 ```
 **Visualization**:
