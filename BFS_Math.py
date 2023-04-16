@@ -1,5 +1,4 @@
 import networkx as nx
-import matplotlib.pyplot as plt
 
 def build_graph_from_dict(parents_dict):
     # Create an empty directed graph
@@ -20,11 +19,15 @@ def find_direct_children(graph, source):
     # Create a BFS tree starting from the source node
     bfs_tree = nx.bfs_tree(graph, source, depth_limit=1)
     
+    # Creates an empty list to contain the children of the node
     children = []
+    
+    # Loops through every node in bfs_tree. Since the max depth is 1, every node is the child of the source.
     for node in bfs_tree:
         if node != source:
             children.append(node)
     
+    # If the source node has no children, return a message
     if not children:
         return "There are no other courses that have the one you entered as a prereq!"
     return children
