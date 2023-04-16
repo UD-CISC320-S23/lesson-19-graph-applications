@@ -47,19 +47,16 @@ edges = []
 with open("tourist_destinations.txt") as data_file:
     lines: list[str]
     lines = data_file.readlines()
+vertexList = lines[1:22]
+edgeList = lines[23:]
 destinations = nx.Graph()
-for line in lines:
-    nx.add_node(line)
-    
-with open("tourist_edges.txt") as data_file:
-    lines: list[str]
-    lines = data_file.readlines()
-for line in lines:
-    edges.append(line.split(","))
-for line in lines:
-    nx.add_edge(edges[0], edges[1],edges[2])
-    
-
+for vertex in vertexList:
+    destinations.add_node(vertex.replace("\n",""))
+for edge in edgeList:
+    edges.append(edge.split(","))
+for edge in edges:
+    test = edge[2]
+    destinations.add_edge(edge[0], edge[1], weight=int(edge[2]))
 ```
 **Visualization**:
 
@@ -68,6 +65,8 @@ for line in lines:
 **Solution code:**
 
 ```python
+solution = minimum_spanning_tree(destinations,algorithm="prim",data=False)
+edgelist = list(solution)
 ```
 
 **Output**
