@@ -3,7 +3,7 @@
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
 Group Members:
-* First member (email)
+* Rohan Yarlagadda (rohany@udel.edu)
 * Second member (email)
 * Third member (email)
 * Fourth member (email)
@@ -22,7 +22,71 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
+# Prim's Algorithm
+
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:
+
+# Second Problem Title
+
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:
+
+# Third Problem Title
 
 **Informal Description**: 
 
