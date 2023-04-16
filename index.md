@@ -1,11 +1,11 @@
 # Title of Your Project
 
-**CISC320 Spring 2023 Lesson 14 - Graph Applications**
+**CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
 * First member (email)
 * Second member (email)
-* Third member (email)
+* jfmarks@udel.edu
 * Fourth member (email)
 
 Description of project
@@ -24,11 +24,12 @@ import networkx as nx
 
 # First Problem Title
 
-**Informal Description**: 
+**Informal Description**:
+Joe needs to figure out what the easiest path of prerequisites can be taken to get to ECON 490
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: 'ECON 101', 'ECON 490', and the ECON course graph
+>  * Output: (['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 
 **Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
 
@@ -106,13 +107,20 @@ import networkx as nx
 
 **Solution code:**
 
-```solution = nx.shortest_path(g, source='ECON 101', target='ECON 490', weight='weight')
+```# the source and destination must be formatted as 'ECON ###' with an existing course #
+def find_path(source: str, destination: str, g: nx.DiGraph):
+    if nx.has_path(g, source=source, target=destination):
+        solution = nx.shortest_path(g, source=source, target=destination, weight='weight')
+        return solution, "weight = " + str(nx.path_weight(g, solution, weight='weight'))
+    else:
+        return "No Path"
 ```
 
 **Output**
 
-```print(solution)
+```(['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 ```
 
 **Interpretation of Results**:
+	the shortest_path function in the nx library uses Dijkstra's algorithm by default to find the shortest path from one node to another node.
 
