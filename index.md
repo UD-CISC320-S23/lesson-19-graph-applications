@@ -1,4 +1,4 @@
-# Title of Your Project
+# Transportations
 
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
@@ -10,9 +10,8 @@ Group Members:
 
 Description of project
 
-We are planning a trip for this summer. we wish to fly somewhere far away/exotic and pick a great plan for visiting
-all of the tourist destinations wherever we choose to visit has to offer on a budget. aswell as packlight to avoid
-any baggage fees with heavy luggage 
+Our project heavily revolves around modes of transportation. This is what we all gravitated towards when we were thinking
+of real world applications of graphing algorithms. 
 
 ## Installation Code
 
@@ -26,8 +25,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
-Turist destinations
+# busing in CA
 **Informal Description**: 
 A tour bus company based in LA wants to map out new routes and want to stop as often as possible to
 pick up new travelers, but also stop at every popular tourist destination. in order to do this, the bussing 
@@ -43,7 +41,6 @@ company wants to pick routes such that the bus drives on the shortest road to ge
 **Setup code**:
 
 ```python
-import networkx as nx
 edges = []
 with open("tourist_destinations.txt") as data_file:
     lines: list[str]
@@ -64,12 +61,13 @@ for edge in edges:
 **Solution code:**
 
 ```python
-solution = minimum_spanning_tree(destinations,algorithm="prim",data=False)
-edgelist = list(solution)
+solution = nx.minimum_spanning_tree(destinations,algorithm="prim",data=False)
+print(solution.edges(data=True))
+
 ```
 
 **Output**
-
+edgelist = list(solution)
 ```
 ```
 

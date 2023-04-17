@@ -1,4 +1,4 @@
-edges
+edges("vertex1,vertex2,edgeWeight")
 GoldenGateBridge,PalmSprings,14
 Disneyland,DeathValley,4
 BigSur,GoldenGateBridge,3
