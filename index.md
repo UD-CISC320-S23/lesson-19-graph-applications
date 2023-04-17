@@ -47,11 +47,9 @@ edges = []
 with open("tourist_destinations.txt") as data_file:
     lines: list[str]
     lines = data_file.readlines()
-vertexList = lines[1:22]
-edgeList = lines[23:]
+
+edgeList = lines[1:]
 destinations = nx.Graph()
-for vertex in vertexList:
-    destinations.add_node(vertex.replace("\n",""))
 for edge in edgeList:
     edges.append(edge.split(","))
 for edge in edges:
