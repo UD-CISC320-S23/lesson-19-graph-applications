@@ -125,3 +125,119 @@ def find_path(source: str, destination: str, g: nx.DiGraph):
 **Interpretation of Results**:
 	the shortest_path function in the nx library uses Dijkstra's algorithm by default to find the shortest path from one node to another node.
 
+# Calculating Minimum Networking Cost using a Minimum Spanning Tree
+
+**Informal Description**: 
+    In a drastic turn of funding and enrollment, the University of Delaware has approved building 20 new computer science 
+    labs in certain buildings around campus, with each lab designated for a specific subset of the CISC-coded courses. 
+    Unfortunately, due to outdated technology (or perhaps at the request of Dr. Roosen and Dr. Silber) each of these labs
+    must be networked directly to the Central UD CISC Server (this defintely exists) at Smith Hall. The problem is to 
+    determine the minimum cost for connecting all of the new Labs to the central server and map out this solution. On 
+    the map, each line indicates how much it would cost to dig a tunnel to lay the networking cable required to connect 
+    each building, or add cable to existing tunnels. (Note: it costs A LOT to dig through the middle of the Green). UD 
+    already had to do that once a few years ago, we aren't ruining any more senior pictures!). A cost of 1 on the map 
+    translates to $10,000. The map is attatched below.
+> **Formal Description**:
+>  * Input: CISC Course Graph (V, E), defined by the image below
+>  * Output: (A Minimum Spanning Tree of CISC Course Graph, Total Cost $590,000 (i.e. total edge weight = 59))
+
+**Graph Problem/Algorithm**: [MST]
+
+
+**Setup code**:
+
+```python
+import networkx as nx
+lab_map = nx.Graph()
+edges = []
+with open('edge-list.txt') as file:
+    lines = file.readlines()
+    for line in lines:
+        line = line.strip()
+        nodes = line.split(' ')
+        node0 = nodes[0]
+        node1 = nodes[2]
+        weight = nodes[3].split("\"")[1]
+        edges.append((node0, node1, int(weight)))
+
+print(edges)
+lab_map.add_weighted_edges_from(edges)
+print(lab_map)
+```
+
+**Visualization**:
+
+![Image goes here](mst/initial-graph.svg)
+
+**Solution code:**
+
+```python
+mst = nx.tree.minimum_spanning_edges(lab_map, algorithm='prim', data=True)
+edge_list = list(mst)
+sorted_edge_list = sorted(edge_list)
+[print(edge) for edge in sorted_edge_list] #preformatted output
+sum = 0
+for edge in sorted_edge_list:
+    sum += edge[2]['weight']
+print("Total weight is: " + str(sum))
+print("Total cost is: " + str(sum*10000))
+formatted_output_to_graphviz = [(str(edge[0]) + " -- " + str(edge[1]) + " [label=\"" + str(edge[2]['weight']) + "\"];") for edge in sorted_edge_list]
+with open(r'mst-edge-list', 'w') as file:
+    for line in formatted_output_to_graphviz:
+        file.write("%s\n" % line)
+```
+
+**Output**
+
+```
+    ('CISC108', 'CISC181', {'weight': 2})
+    ('CISC108', 'CentralUDServer', {'weight': 8})
+    ('CISC181', 'CISC220', {'weight': 3})
+    ('CISC260', 'CISC360', {'weight': 6})
+    ('CISC260', 'CISC361', {'weight': 1})
+    ('CISC275', 'CISC355', {'weight': 2})
+    ('CISC275', 'CISC498', {'weight': 2})
+    ('CISC303', 'CISC260', {'weight': 2})
+    ('CISC303', 'CISC275', {'weight': 1})
+    ('CISC303', 'CISC304', {'weight': 1})
+    ('CISC304', 'CISC483', {'weight': 3})
+    ('CISC320', 'CISC484', {'weight': 4})
+    ('CISC355', 'CISC108', {'weight': 4})
+    ('CISC355', 'CISC499', {'weight': 3})
+    ('CISC437', 'CISC320', {'weight': 9})
+    ('CISC481', 'CISC437', {'weight': 2})
+    ('CISC498', 'CISC372', {'weight': 2})
+    ('CentralUDServer', 'CISC210', {'weight': 2})
+    ('CentralUDServer', 'CISC481', {'weight': 2})
+    Total weight is: 59
+    Total cost is: 590000
+```
+
+**Interpretation of Results**:
+```
+A minimum spanning tree that links all of the newly created CISC Labs
+    and the main server contains the following nodes:
+    ('CISC108', 'CISC181')
+    ('CISC108', 'CentralUDServer')
+    ('CISC181', 'CISC220')
+    ('CISC260', 'CISC360')
+    ('CISC260', 'CISC361')
+    ('CISC275', 'CISC355')
+    ('CISC275', 'CISC498')
+    ('CISC303', 'CISC260')
+    ('CISC303', 'CISC275')
+    ('CISC303', 'CISC304')
+    ('CISC304', 'CISC483')
+    ('CISC320', 'CISC484')
+    ('CISC355', 'CISC108')
+    ('CISC355', 'CISC499')
+    ('CISC437', 'CISC320')
+    ('CISC481', 'CISC437')
+    ('CISC498', 'CISC372')
+    ('CentralUDServer', 'CISC210')
+    ('CentralUDServer', 'CISC481')
+    An image of the final Minimum Spanning Tree is attached below,
+    with a total weight of 59, which translates to a total cost for the project
+    of $590,000.
+```
+![Image goes here](mst/initial-graph.svg)
