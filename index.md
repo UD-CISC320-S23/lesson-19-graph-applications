@@ -457,4 +457,4 @@ A minimum spanning tree that links all of the newly created CISC Labs
     with a total weight of 59, which translates to a total cost for the project
     of $590,000.
 ```
-![Image goes here](mst/initial-graph.svg)
+![Image goes here](mst/mst-output.svg)
