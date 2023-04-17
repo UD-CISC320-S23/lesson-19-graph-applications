@@ -1,10 +1,9 @@
 import networkx as nx
-import matplotlib.pyplot as plt
 
 '''
 1. An informal description of the problem, written for intelligent non-Computer Scientists
-    In a drastic turn of funding and enrollment, the University of Delaware has approved building a new computer science 
-    lab in a number of buildings around campus, with each lab designated for a specific subset of the CISC-coded courses. 
+    In a drastic turn of funding and enrollment, the University of Delaware has approved building 20 new computer science 
+    labs in certain buildings around campus, with each lab designated for a specific subset of the CISC-coded courses. 
     Unfortunately, due to outdated technology (or perhaps at the request of Dr. Roosen and Dr. Silber) each of these labs
     must be networked directly to the Central UD CISC Server (this defintely exists) at Smith Hall. The problem is to 
     determine the minimum cost for connecting all of the new Labs to the central server and map out this solution. On 
@@ -13,10 +12,8 @@ import matplotlib.pyplot as plt
     already had to do that once a few years ago, we aren't ruining any more senior pictures!). A cost of 1 on the map 
     translates to $10,000. The map is attatched below.
 2. A formal description of the problem, written for other Computer Scientists
-    Provided is a graph that contains 20 vertices and 40 edges, representing UD buildings (containing new CISC Labs) and 
-    costs of connecting these labs together. The problem is to construct a Minimum Spanning Tree that minimizes the total
-    amount of edge weight on the graph using Prim's Algorithm. Following this, calculate the total cost for the project 
-    in dollars, where an edge weight of 1 represents $10,000.
+    Input: CISC Course Graph (V, E), defined by the image below
+    Output: (A Minimum Spanning Tree of CISC Course Graph, Total Cost $590,000 (i.e. total edge weight = 59))
 3. Which of the four main graph problems you are solving (DFS, BFS, SSSP/APSP, MST)
     MST
 4. A visualization of the graph for the problem
