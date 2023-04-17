@@ -3,7 +3,7 @@
 **CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
-* First member (email)
+* philong@udel.edu
 * ebrignac@udel.edu 
 * jfmarks@udel.edu
 * Patrick Brady (pbrady@udel.edu)
@@ -133,7 +133,7 @@ Joe needs to figure out what the easiest path of prerequisites can be taken to g
 >  * Input: 'ECON 101', 'ECON 490', and the ECON course graph
 >  * Output: (['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: [BFS]
 
 
 **Setup code**:
