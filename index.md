@@ -3,8 +3,8 @@
 **CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
-* First member (email)
-* Second member (email)
+* philong@udel.edu
+* ebrignac@udel.edu 
 * jfmarks@udel.edu
 * Patrick Brady (pbrady@udel.edu)
 
@@ -22,6 +22,108 @@ $> pip install networkx
 import networkx as nx
 ```
 
+
+# BFS - Finding Courses Given a Prerequisite
+
+**Informal Description**: BFS problem that enables you to find all the courses which list your given course as a prereq. Essentially, you can find what courses you can now take given you have taken the specified course.
+
+> **Formal Description**: 
+>  * Input: A Course ID and the MATH course graph
+>  * Output: The children of the Course ID
+
+**Graph Problem/Algorithm**: [BFS]
+
+
+**Setup code**:
+
+```python
+def build_graph_from_dict(parents_dict):
+    # Create an empty directed graph
+    graph = nx.DiGraph()
+
+    # Add all nodes to the graph
+    nodes = parents_dict.keys()
+    graph.add_nodes_from(nodes)
+
+    # Add edges between nodes and their parents
+    for node, parents in parents_dict.items():
+        for parent in parents:
+            graph.add_edge(parent, node)
+
+    return graph
+
+parents_dict = {
+    "MATH 010" : [],
+    "MATH 114" : ['MATH 010'],
+    "MATH 115" : ['MATH 010'],
+    "MATH 221" : ['MATH 115', 'MATH 117'],
+    "MATH 222" : ['MATH 221', 'MATH 241'],
+    "MATH 230" : ['MATH 221'],
+    "MATH 205" : ['MATH 210', 'MATH 230'],
+    "MATH 349" : ['MATH 230', 'MATH 242'],
+    "MATH 302" : ['MATH 242', 'MATH 349', 'MATH 351'],
+    "MATH 420" : ['MATH 302', 'MATH 349', 'MATH 350'],
+    "MATH 419" : ['MATH 219', 'MATH 243', 'MATH 349', 'MATH 350'],
+    "MATH 426" : ['MATH 305', 'MATH 351', 'MATH 349'],
+    "MATH 428" : ['MATH 426', 'MATH 353'],
+    "MATH 451" : ['MATH 349', 'MATH 245'],
+    "MATH 308" : ['MATH 221', 'MATH 232', 'MATH 241'],
+    "MATH 117" : ['MATH 010'],
+    "MATH 241" : ['MATH 117'],
+    "MATH 219" : ['MATH 241'],
+    "MATH 242" : ['MATH 241', 'MATH 232'],
+    "MATH 243" : ['MATH 242'],
+    "MATH 379" : ['MATH 243'],
+    "MATH 380" : ['MATH 379'],
+    "MATH 382" : ['MATH 380'],
+    "MATH 245" : ['MATH 210', 'MATH 242'],
+    "MATH 401" : ['MATH 245'],
+    "MATH 305" : ['MATH 242'],
+    "MATH 231" : ['MATH 010'],
+    "MATH 232" : ['MATH 231'],
+}
+
+G = build_graph_from_dict(parents_dict)
+
+```
+
+**Visualization**:
+
+![Image goes here](MATH_graph.png)
+
+**Solution code:**
+
+```python
+def find_direct_children(graph, source):
+    # Create a BFS tree starting from the source node
+    bfs_tree = nx.bfs_tree(graph, source, depth_limit=1)
+    
+    # Creates an empty list to contain the children of the node
+    children = []
+    
+    # Loops through every node in bfs_tree. Since the max depth is 1, every node is the child of the source.
+    for node in bfs_tree:
+        if node != source:
+            children.append(node)
+    
+    # If the source node has no children, return a message
+    if not children:
+        return "There are no other courses that have the one you entered as a prereq!"
+    return children
+```
+
+**Output**
+
+```
+Please enter a course. You must enter a course ID following the example format: "MATH 242"
+The BFS algorithm will determine what courses you can take once you have completed the course you entered: MATH 242
+Here are the courses you can take now:
+['MATH 349', 'MATH 302', 'MATH 243', 'MATH 245', 'MATH 305']
+```
+
+**Interpretation of Results**: Given that you have taken MATH 242, the courses that you can now take are MATH 349, MATH 302, MATH 243, MATH 245, and MATH 305. These courses list MATH 242 as a prereq and, now that you have taken MATH 242, you are now able to enroll in these courses.
+
+
 # Using SSSP to find the easiest class
 
 **Informal Description**:
@@ -31,12 +133,12 @@ Joe needs to figure out what the easiest path of prerequisites can be taken to g
 >  * Input: 'ECON 101', 'ECON 490', and the ECON course graph
 >  * Output: (['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: [BFS]
 
 
 **Setup code**:
 
-```
+```python
     # the dictionary containing the adjacency for the graph
     adjacency_dict = {"ECON 101": [],
                       "ECON 103": ['ECON 101'],
@@ -124,6 +226,121 @@ def find_path(source: str, destination: str, g: nx.DiGraph):
 
 **Interpretation of Results**:
 	the shortest_path function in the nx library uses Dijkstra's algorithm by default to find the shortest path from one node to another node.
+
+
+
+
+# Using DFS to find the lowest CISC course number in the graph
+
+**Informal Description**:
+Bob wants to find the easiest computer science course. Foolishly, Bob thinks that the easiest course is the one with the lowest Course ID.
+
+> **Formal Description**:
+>  * Input: 'CISC 499', and the CISC course graph
+>  * Output: CISC 108
+
+**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+    DFS
+
+**Setup code**:
+
+```python
+   adjacency_dict = {
+'CISC 108': [],
+'CISC 181': ['CISC 108'],
+'CISC 250': ['CISC 181'],
+'CISC 275': ['CISC 181', 'CISC 220'],
+'CISC 415': ['CISC 275'],
+'CISC 474': ['CISC 275'], 
+'CISC 475': ['CISC 275', 'CISC 361'],
+'CISC 482': ['CISC 275'], 
+'CISC 498': ['CISC 275'],
+'CISC 499': ['CISC 320', 'CISC 498'],
+'CISC 204': ['CISC 108'], 
+'CISC 210': ['CISC 108'],
+'CISC 220': ['CISC 210'],
+'CISC 303': ['CISC 220'],
+'CISC 401': ['CISC 303'], 
+'CISC 471': ['CISC 260', 'CISC 303'],
+'CISC 304': ['CISC 220'],
+'CISC 404': ['CISC 304'],
+'CISC 414': ['CISC 304'],
+'CISC 481': ['CISC 220', 'CISC 304'], 
+'CISC 320': ['CISC 220'], 
+'CISC 358': ['CISC 220'],
+'CISC 360': ['CISC 220', 'CISC 260'],
+'CISC 361': ['CISC 220', 'CISC 260'],
+'CISC 469': ['CISC 361'],
+'CISC 479': ['CISC 361'],
+'CISC 362': ['CISC 220'],
+'CISC 372': ['CISC 220', 'CISC 260'],
+'CISC 374': ['CISC 220'],
+'CISC 436': ['CISC 220'],
+'CISC 437': ['CISC 220'],
+'CISC 440': ['CISC 220'],
+'CISC 442': ['CISC 220'],
+'CISC 483': ['CISC 220'],
+'CISC 484': ['CISC 220'],
+'CISC 486': ['CISC 220'],
+'CISC 488': ['CISC 220'], 
+'CISC 260': ['CISC 210'],
+'CISC 450': ['CISC 260'],
+'CISC 453': ['CISC 450'],
+'CISC 459': ['CISC 450'],
+'CISC 464': ['CISC 450'],
+'CISC 357': ['CISC 108']}
+
+import networkx as nx
+
+G = nx.DiGraph(adjacency_dict)
+
+
+```
+
+**Visualization**:
+
+![Image goes here](CISC_graph.png) 
+
+**Solution code:**
+
+```python
+# the source and destination must be formatted as 'ECON ###' with an existing course #
+def find_easiest_course(course):
+    # Find the easiest course in the graph
+    # The easiest course == the course with the lowest course number
+
+
+    # Perform depth-first search to search all nodes of depth 2
+    dfs_edges = nx.dfs_edges(G, course)
+
+    # Print the edges visited during the depth-first search
+    
+    m = int(course[-3:])
+    for edge in dfs_edges:
+        print(edge)
+        if int(edge[0][-3:]) < m:
+            m = int(edge[0][-3:])
+        if int(edge[1][-3:]) < m:
+            m = int(edge[1][-3:])
+    return 'CISC ' + str(m)
+```
+
+**Output**
+
+```
+CISC 108
+```
+
+**Interpretation of Results**:
+	The Depth first search algorith scans over all of the nodes in the graph so we can use
+    it to find the node with the smallest course number. 
+
+
+
+
+
+
+
 
 # Calculating Minimum Networking Cost using a Minimum Spanning Tree
 
