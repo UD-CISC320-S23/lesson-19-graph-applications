@@ -4,7 +4,7 @@
 
 Group Members:
 * Paul Kearney (paulke@udel.edu)
-* Second member (email)
+* Jon O'Connell (jjoc@udel.edu)
 * Third member (email)
 * Fourth member (email)
 
