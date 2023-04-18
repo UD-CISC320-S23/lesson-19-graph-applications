@@ -1,3 +1,5 @@
+import networkx as nx
+
 # digraph Udel {
     
 #    Frazer_field -> Lil_bob [dir=none] d
@@ -24,7 +26,6 @@
        
 #    }
 
-import networkx as nx
 
 g = nx.Graph()
 g.add_edge("Frazer Field", "Lil Bob", weight = 4)
@@ -49,5 +50,4 @@ g.add_edge("Spencer Lab", "Colburn", weight = 2)
 g.add_edges_from([("Allison", "Perkins"), ("Allison", "Penny")], weight = 2)
 
 
-# f = nx.shortest_path(g, "A", "D", weight = "weight")
-# print(f)
+print(nx.shortest_path(g, "Morris", "Penny", weight = "weight"))
