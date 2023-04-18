@@ -35,7 +35,7 @@ to collect the food from all the restaurants. Below is the restaurant path that 
 A Prims algorithm minimum spanning tree will be used to find the lowest cost for the delivery driver to
 go to the 20 restuarant and pick up the food. The algorithm will find the lowest cost between each 
 restaurant and take that path.
->  * Input:
+>  * Input: A connected undirected graph G = (V, E) of resturants with edge weights that represent the cost of distance traveled.
 >  * Output: A minimal spanning tree representing the path that will give the lowest cost to pick up all the food from each restaurant. 
 
 **Graph Problem/Algorithm**: MST
