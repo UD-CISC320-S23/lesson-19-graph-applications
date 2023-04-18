@@ -120,7 +120,7 @@ nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
 ```
 **Visualization**:
 
-(graph_for_djikstras_shell.png)
+!(graph_for_djikstras_shell.png)
 **Solution code:**
 
 ```python
