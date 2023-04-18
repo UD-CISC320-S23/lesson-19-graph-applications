@@ -1,5 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+from networkx.algorithms import tree
 import pprint
 import json
 
@@ -12,6 +13,13 @@ on what order the delivery driver goes too. The wedding party is trying to find 
 to collect the food from all the restaurants. Below is the restaurant path that will give the minimal cost.
 
 2.A formal description of the problem, written for other Computer Scientists
+A Prims algorithm minimum spanning tree will be used to find the lowest cost for the delivery driver to
+go to the 20 restuarant and pick up the food. The algorithm will find the lowest cost between each 
+restaurant and take that path.
+>  * Input: A connected undirected graph G = (V, E) of resturants with edge weights that 
+represent the cost of distance traveled.
+>  * Output: A minimal spanning tree representing the path that will give the lowest cost to pick up 
+all the food from each restaurant. 
 
 3.Which of the four main graph problems you are solving (MST)
 
@@ -32,8 +40,6 @@ G.add_edge("Taverna Newark", "Five Guys", weight=2.4)
 G.add_edge("Oishii Sushi & Ramen", "Deer Park Tavern", weight=3.7)
 G.add_edge("Indian Sizzler", "Oishii Sushi & Ramen", weight=4.4)
 G.add_edge("Indian Sizzler", "Deer Park Tavern", weight=6.7)
-#G.add_edge("Indian Sizzler", "Mama's Pizza & Pasta", weight=5.0)
-#G.add_edge("Indian Sizzler", "Honey Grow", weight=7.8)
 G.add_edge("Taverna Newark", "Hamilton's", weight=9.3)
 G.add_edge("Caffe Gelato", "m2o Burgers", weight=8.9)
 G.add_edge("El Diablo", "Home Grown", weight=4.3)
@@ -60,10 +66,10 @@ G.add_edge("Oishii Sushi & Ramen", "Mama's Pizza & Pasta", weight=1.9)
 print("Number of nodes = ", G.number_of_nodes())
 print("Number of edges = ", G.number_of_edges())
 
-print("G.nodes = ", G.nodes)
-print("G.edges = ", G.edges)
-print("G.degree = ", G.degree)
-print("G.adj = ", G.adj)
+#print("G.nodes = ", G.nodes)
+#print("G.edges = ", G.edges)
+#print("G.degree = ", G.degree)
+#print("G.adj = ", G.adj)
 
 #To visualize
 #nx.draw_networkx(G)
@@ -77,9 +83,16 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels)
 
 ax = plt.gca()
 ax.margins(0.02)
+
 plt.axis("off")
 plt.tight_layout()
 plt.show()
+
+mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+edgelist = list(mst)
+sorted(sorted(e) for e in edgelist)
+print(edgelist)
+#print(mst)
 
 #dist = nx.floyd_warshall(g)
 
@@ -116,3 +129,5 @@ plt.show()
 # G.add_node("Oishii Sushi & Ramen")
 
 #G.add_edge("Playa Bowls", "Oishii Sushi & Ramen")
+#G.add_edge("Indian Sizzler", "Mama's Pizza & Pasta", weight=5.0)
+#G.add_edge("Indian Sizzler", "Honey Grow", weight=7.8)
