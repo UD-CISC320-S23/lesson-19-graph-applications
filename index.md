@@ -77,12 +77,13 @@ edgelist = list(solution)
 **Informal Description**: 
 A travel company wants to streamline what flights they give to their customers. After too many complaints about 
 giving long travel days to their clients, they want to now send people to their destination the quickest way.
-Regardless of how, they want to send their clients to the destination as fast as they can.
+Regardless of how, they want to send their clients to the destination as fast as they can. If an Atlanta Falcons fan
+wants to go to Las Vegas to see the Raiders play, which flights should the ailine give them?
 
 > **Formal Description**:
 >  * Input: An undirected graph of airports, edges being flight paths that connect terminals,vertices are 
 >  * the airports themselves.
->  * Output: The shortest path from the source to the final destination
+>  * Output: The shortest path from the source to the final destination, in this case ATL to LAS.
 **Graph Problem/Algorithm**: SSSP
 
 
@@ -124,15 +125,16 @@ nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
 **Solution code:**
 
 ```python
-solution = nx.minimum_spanning_tree(destinations,algorithm="prim",data=False)
-print(solution.edges(data=True))
+djikstra = nx.dijkstra_path(G,"ATL","LAS", weight='weight')
+print(djikstra)
 
 ```
 
 **Output**
-edgelist = list(solution)
 ```
+['ATL', 'PHL', 'CLT', 'MEM', 'LAS']
 ```
 
 **Interpretation of Results**:
-
+The resulting list is an order set of vertices giving the shortest path from the source to the destination.
+For this problem, that is the shortest flight path from Atlanta(ATL) to Las Vegas(LAS).
