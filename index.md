@@ -22,15 +22,20 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
+# Lowest Delivery Cost
 
 **Informal Description**: 
+There is a wedding party that wants to have food from all 20 restaurants. But, the wedding is
+in four hours and they do not have enough time or money to pick up all the food. The wedding part is hiring 
+a food delivery service to go to every restaurant and pick up the food. The cost changes depending
+on what order the delivery driver goes too. The wedding party is trying to find the minimal cost
+to collect the food from all the restaurants. Below is the restaurant path that will give the minimal cost.
 
 > **Formal Description**:
 >  * Input:
 >  * Output:
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: MST
 
 
 **Setup code**:

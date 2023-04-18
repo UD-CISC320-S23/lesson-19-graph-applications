@@ -5,6 +5,12 @@ import json
 
 """
 1.An informal description of the problem, written for intelligent non-Computer Scientists
+There is a wedding party that wants to have food from all 20 restaurants. But, the wedding is
+in four hours and they do not have enough time or money to pick up all the food. The wedding part is hiring 
+a food delivery service to go to every restaurant and pick up the food. The cost changes depending
+on what order the delivery driver goes too. The wedding party is trying to find the minimal cost
+to collect the food from all the restaurants. Below is the restaurant path that will give the minimal cost.
+
 2.A formal description of the problem, written for other Computer Scientists
 
 3.Which of the four main graph problems you are solving (MST)
@@ -17,35 +23,11 @@ import json
 #Create empty undirected graph
 G = nx.Graph()
 
-#Add nodes
-#G.add_node("Santa Fe")
-#G.add_node("May Flower")
-#G.add_node("Five Guys")
-#G.add_node("Taverna Newark")
-# G.add_node("Hamilton's")
-# G.add_node("Caffe Gelato")
-# G.add_node("El Diablo")
-# G.add_node("Honey Grow")
-# G.add_node("Home Grown Cafe")
-# G.add_node("Roots")
-# G.add_node("Klondike Kate's Restaurant & Saloon")
-# G.add_node("m2o Burgers & Salads")
-# G.add_node("QDOBA Mexican Eats")
-# G.add_node("Mama's Pizza & Pasta")
-# G.add_node("Indian Sizzler")
-# G.add_node("2SPizza")
-# G.add_node("Snap Custom Pizza and Salads")
-# G.add_node("Playa Bowls")
-# G.add_node("Deer Park Tavern")
-# G.add_node("Oishii Sushi & Ramen")
-
-
 #Add edges
 G.add_edge("Santa Fe", "May Flower", weight=1.3)
 G.add_edge("May Flower", "Five Guys", weight=10)
 G.add_edge("Five Guys", "2SPizza", weight=6.5)
 G.add_edge("2SPizza", "Playa Bowls", weight=1.9)
-#G.add_edge("Playa Bowls", "Oishii Sushi & Ramen")
 G.add_edge("Taverna Newark", "Five Guys", weight=2.4)
 G.add_edge("Oishii Sushi & Ramen", "Deer Park Tavern", weight=3.7)
 G.add_edge("Indian Sizzler", "Oishii Sushi & Ramen", weight=4.4)
@@ -105,3 +87,29 @@ plt.show()
 #Reference 
 #https://www.youtube.com/watch?v=CPQeSmDGiOQ
 #https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html
+
+
+
+#Add nodes
+#G.add_node("Santa Fe")
+#G.add_node("May Flower")
+#G.add_node("Five Guys")
+#G.add_node("Taverna Newark")
+# G.add_node("Hamilton's")
+# G.add_node("Caffe Gelato")
+# G.add_node("El Diablo")
+# G.add_node("Honey Grow")
+# G.add_node("Home Grown Cafe")
+# G.add_node("Roots")
+# G.add_node("Klondike Kate's Restaurant & Saloon")
+# G.add_node("m2o Burgers & Salads")
+# G.add_node("QDOBA Mexican Eats")
+# G.add_node("Mama's Pizza & Pasta")
+# G.add_node("Indian Sizzler")
+# G.add_node("2SPizza")
+# G.add_node("Snap Custom Pizza and Salads")
+# G.add_node("Playa Bowls")
+# G.add_node("Deer Park Tavern")
+# G.add_node("Oishii Sushi & Ramen")
+
+#G.add_edge("Playa Bowls", "Oishii Sushi & Ramen")
