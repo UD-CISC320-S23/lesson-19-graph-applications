@@ -3,6 +3,17 @@ import matplotlib.pyplot as plt
 import pprint
 import json
 
+"""
+1.An informal description of the problem, written for intelligent non-Computer Scientists
+2.A formal description of the problem, written for other Computer Scientists
+
+3.Which of the four main graph problems you are solving (MST)
+
+4.A visualization of the graph for the problem
+5.The syntax-highlighted code used to load the data into `networkx` and to call the appropriate graph algorithm function
+6.The preformatted output of the graph algorithm function
+7.An interpretation of the results that meaningfully answer the question
+"""
 #Create empty undirected graph
 G = nx.Graph()
 
