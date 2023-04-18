@@ -32,29 +32,29 @@ G.add_edge("Taverna Newark", "Five Guys", weight=2.4)
 G.add_edge("Oishii Sushi & Ramen", "Deer Park Tavern", weight=3.7)
 G.add_edge("Indian Sizzler", "Oishii Sushi & Ramen", weight=4.4)
 G.add_edge("Indian Sizzler", "Deer Park Tavern", weight=6.7)
-G.add_edge("Indian Sizzler", "Mama's Pizza & Pasta", weight=5.0)
-G.add_edge("Indian Sizzler", "Honey Grow", weight=7.8)
+#G.add_edge("Indian Sizzler", "Mama's Pizza & Pasta", weight=5.0)
+#G.add_edge("Indian Sizzler", "Honey Grow", weight=7.8)
 G.add_edge("Taverna Newark", "Hamilton's", weight=9.3)
-G.add_edge("Caffe Gelato", "m2o Burgers & Salads", weight=8.9)
-G.add_edge("El Diablo", "Home Grown Cafe", weight=4.3)
+G.add_edge("Caffe Gelato", "m2o Burgers", weight=8.9)
+G.add_edge("El Diablo", "Home Grown", weight=4.3)
 G.add_edge("El Diablo", "Honey Grow", weight=9.0)
-G.add_edge("m2o Burgers & Salads", "Home Grown Cafe", weight= 4.6)
-G.add_edge("Honey Grow", "Roots", weight=3.4)
-G.add_edge("Klondike Kate's Restaurant & Saloon", "Snap Custom Pizza and Salads", weight=6.5)
-G.add_edge("2SPizza", "Snap Custom Pizza and Salads", weight=3.4)
-G.add_edge("Klondike Kate's Restaurant & Saloon", "m2o Burgers & Salads", weight=2.9)
-G.add_edge("QDOBA Mexican Eats", "Mama's Pizza & Pasta", weight=7.8)
-G.add_edge("Honey Grow", "Hamilton's", weight=2.4)
+G.add_edge("m2o Burgers", "Home Grown", weight= 4.6)
+G.add_edge("Honey Grow", "Roots", weight=3.1)
+G.add_edge("Klondike Kate's", "Snap Custom Pizza", weight=6.5)
+G.add_edge("2SPizza", "Snap Custom Pizza", weight=3.4)
+G.add_edge("Klondike Kate's", "m2o Burgers", weight=2.9)
+G.add_edge("QDOBA", "Mama's Pizza & Pasta", weight=7.8)
+G.add_edge("El Diablo", "May Flower", weight=2.4)
 G.add_edge("May Flower", "Roots", weight=9.2)
 G.add_edge("Santa Fe", "Mama's Pizza & Pasta", weight=2.3)
 G.add_edge("Santa Fe", "El Diablo", weight=6.4)
 G.add_edge("Caffe Gelato", "Mama's Pizza & Pasta", weight=5.1)
 G.add_edge("El Diablo", "2SPizza", weight=8.3)
 G.add_edge("Deer Park Tavern", "Santa Fe", weight=7.6)
-G.add_edge("QDOBA Mexican Eats", "Home Grown Cafe", weight=7.9)
+G.add_edge("QDOBA", "Home Grown", weight=7.9)
 G.add_edge("Roots", "Hamilton's", weight=5.7)
-G.add_edge("Playa Bowls", "Snap Custom Pizza and Salads", weight=0.5)
-G.add_edge("QDOBA Mexican Eats", "El Diablo", weight=6.6)
+G.add_edge("Playa Bowls", "Snap Custom Pizza", weight=0.5)
+G.add_edge("QDOBA", "El Diablo", weight=6.6)
 G.add_edge("Oishii Sushi & Ramen", "Mama's Pizza & Pasta", weight=1.9)
 
 print("Number of nodes = ", G.number_of_nodes())
@@ -63,32 +63,35 @@ print("Number of edges = ", G.number_of_edges())
 print("G.nodes = ", G.nodes)
 print("G.edges = ", G.edges)
 print("G.degree = ", G.degree)
-#print("G.adj = ", G.adj)
+print("G.adj = ", G.adj)
 
 #To visualize
 #nx.draw_networkx(G)
 plt.figure(1)
-pos=nx.spring_layout(G, iterations=1000)
+pos=nx.spring_layout(G, iterations=6000)
 nx.draw_networkx(G, pos, arrows=False, with_labels=True)
-
-edge_labels = nx.get_edge_attributes(G, "weight")
-nx.draw_networkx_edge_labels(G, pos, edge_labels)
 
 # edge weight labels
 edge_labels = nx.get_edge_attributes(G, "weight")
+nx.draw_networkx_edge_labels(G, pos, edge_labels)
 
 ax = plt.gca()
-ax.margins(0.08)
+ax.margins(0.02)
 plt.axis("off")
 plt.tight_layout()
 plt.show()
 
+#dist = nx.floyd_warshall(g)
+
+#pprint.pprint(json.loads(json.dumps(dist)))
 
 #Reference 
 #https://www.youtube.com/watch?v=CPQeSmDGiOQ
 #https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html
 
 
+#if __name__ == "__main__":
+ #   prims_graph()
 
 #Add nodes
 #G.add_node("Santa Fe")

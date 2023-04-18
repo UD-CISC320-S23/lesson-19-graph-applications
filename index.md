@@ -22,7 +22,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# Lowest Delivery Cost
+# Probelm #2: Lowest Delivery Cost
 
 **Informal Description**: 
 There is a wedding party that wants to have food from all 20 restaurants. But, the wedding is
@@ -32,8 +32,11 @@ on what order the delivery driver goes too. The wedding party is trying to find 
 to collect the food from all the restaurants. Below is the restaurant path that will give the minimal cost.
 
 > **Formal Description**:
+A Prims algorithm minimum spanning tree will be used to find the lowest cost for the delivery driver to
+go to the 20 restuarant and pick up the food. The algorithm will find the lowest cost between each 
+restaurant and take that path.
 >  * Input:
->  * Output:
+>  * Output: A minimal spanning tree representing the path that will give the lowest cost to pick up all the food from each restaurant. 
 
 **Graph Problem/Algorithm**: MST
 
