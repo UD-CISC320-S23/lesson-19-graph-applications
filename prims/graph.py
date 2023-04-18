@@ -66,13 +66,7 @@ G.add_edge("Oishii Sushi & Ramen", "Mama's Pizza & Pasta", weight=1.9)
 print("Number of nodes = ", G.number_of_nodes())
 print("Number of edges = ", G.number_of_edges())
 
-#print("G.nodes = ", G.nodes)
-#print("G.edges = ", G.edges)
-#print("G.degree = ", G.degree)
-#print("G.adj = ", G.adj)
-
 #To visualize
-#nx.draw_networkx(G)
 plt.figure(1)
 pos=nx.spring_layout(G, iterations=6000)
 nx.draw_networkx(G, pos, arrows=False, with_labels=True)
@@ -92,16 +86,21 @@ mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
 edgelist = list(mst)
 sorted(sorted(e) for e in edgelist)
 print(edgelist)
+
+
 #print(mst)
 
-#dist = nx.floyd_warshall(g)
-
-#pprint.pprint(json.loads(json.dumps(dist)))
+#nx.draw_networkx(G)
 
 #Reference 
 #https://www.youtube.com/watch?v=CPQeSmDGiOQ
 #https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html
+#https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.mst.minimum_spanning_edges.html
 
+#print("G.nodes = ", G.nodes)
+#print("G.edges = ", G.edges)
+#print("G.degree = ", G.degree)
+#print("G.adj = ", G.adj)
 
 #if __name__ == "__main__":
  #   prims_graph()
