@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-graph = {"PHL:":{"LAX": {'weight': 8}, "CLT": {'weight': 2}, "PHX":{'weight': 6},
+graph = {"PHL":{"LAX": {'weight': 8}, "CLT": {'weight': 2}, "PHX":{'weight': 6},
                 "ORD": {'weight': 3},"ATL":{'weight':2},"BOS":{"weight":1}},
           "CLT": {"MIA":{"weight":2},"STL":{"weight":2},"DFW":{"weight":4},
                   "MEM":{"weight":1},"DEN":{"weight":4}},
@@ -16,21 +16,28 @@ graph = {"PHL:":{"LAX": {'weight': 8}, "CLT": {'weight': 2}, "PHX":{'weight': 6}
           "MIA":{"ATL":{"weight":2},"IAD":{"weight":4},"BOS":{"weight":7}},
           "STL":{"MEM":{"weight":2},"SLC":{"weight":3}, "DTW":{"weight":1},
                  "CLE":{"weight":1}},
-          "BOS":{"LAX":{"weight":10},"CLE":{"weight":5},"CLE":{"weight":2}}
+          "BOS":{"LAX":{"weight":10},"CLE":{"weight":5},"CLE":{"weight":2}},
+          "HNL": {"LAX":{"weight":13},"SFO":{"weight":13}}
           }
 G = nx.from_dict_of_dicts(graph)
 
-pos = nx.spring_layout(G,k=0.05, seed=13)
+pos = nx.shell_layout(G)
 labels = nx.get_edge_attributes(G,'weight')
 plt.figure(1,figsize=(12,12)) 
 nx.draw_networkx(G,pos, node_size=100, font_size=16)
 nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
-plt.savefig("graph_for_djikstras.png")
+plt.savefig("graph_for_djikstras_shell.png")
 
-djiksras = nx.algorithms.shortest_path(G,source='PHL',target='SEA', weight='weight', method='dijkstra')
-pos = nx.spring_layout(djiksras,k=0.05, seed=13)
-labels = nx.get_edge_attributes(G,'weight')
-plt.figure(1,figsize=(12,12)) 
-nx.draw_networkx(G,pos, node_size=100, font_size=16)
-nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
-plt.savefig("shortest_path.png")
+# djiksras = nx.algorithms.shortest_path(G,source="PHL",target="ORD", weight='weight', method='dijkstra')
+# pos = nx.spring_layout(djiksras,k=0.05, seed=13)
+# labels = nx.get_edge_attributes(G,'weight')
+# plt.figure(1,figsize=(12,12)) 
+# nx.draw_networkx(djiksras,pos, node_size=100, font_size=16)
+# nx.draw_networkx_edge_labels(djiksras,pos,edge_labels=labels)
+# plt.savefig("shortest_path.png")
+
+djikstra = nx.dijkstra_path(G,"PHL","SEA")
+pos = nx.spring_layout(G)
+h = G.subgraph(djikstra)
+nx.draw_networkx_nodes(djikstra,pos=pos)
+nx.draw_networkx_edges(djikstra,pos=pos)
