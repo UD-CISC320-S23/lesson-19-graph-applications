@@ -54,7 +54,7 @@ import networkx as nx
 
 **Interpretation of Results**:
 
-# Second Problem Title
+# Minimum Distance Path (Prims)
 
 **Informal Description**: 
 
@@ -67,12 +67,12 @@ import networkx as nx
 
 **Setup code**:
 
-```import matplotlib.pyplot as plt import networkx as nx
-```
+import matplotlib.pyplot as plt 
+import networkx as nx
 
 **Visualization**:
 
-![Prims Graph](https://i.ibb.co/FnvVfKj/prims.png)
+![https://i.ibb.co/FnvVfKj/prims.png](Prims)
 
 **Solution code:**
 
