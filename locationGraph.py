@@ -50,4 +50,6 @@ g.add_edge("Spencer Lab", "Colburn", weight = 2)
 g.add_edges_from([("Allison", "Perkins"), ("Allison", "Penny")], weight = 4)
 
 # test, morris-> allison-> penny
-print(nx.shortest_path(g, "Morris", "Penny", weight = "weight"))
+#print(nx.shortest_path(g, "Morris", "Penny", weight = "weight"))
+
+#testing merge
