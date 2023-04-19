@@ -28,5 +28,8 @@ nx.draw_networkx(possible_destinations,pos, node_size=100, font_size=16)
 plt.savefig("graph_for_bfs.png")
 # Output the result
 for destination in possible_destinations:
+    print(destination + ": ", end="")
     connected_stops = dict(nx.bfs_successors(possible_destinations, destination))
-    print(destination + ": " + ", ".join(connected_stops[destination]))
+    for stop in connected_stops:
+        print(",".join(list(connected_stops[stop])) + ",", end="")
+    print()

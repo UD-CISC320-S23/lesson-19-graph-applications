@@ -5,7 +5,7 @@
 Group Members:
 * Paul Kearney (paulke@udel.edu)
 * Jon O'Connell (jjoc@udel.edu)
-* Third member (email)
+* Daniel DeFlores (deflores@udel.edu)
 * Fourth member (email)
 
 Description of project
@@ -161,7 +161,7 @@ For this problem, that is the shortest flight path from Atlanta(ATL) to Las Vega
 
 # Train Scheduling
 **Informal Description**:
-The local train station has been struggling with business lately because many travelers can't reach their desired destinations-- some of the train tracks don't connect to certain places. To better serve customers, the manager of the station wants to double check which spots are reachable depending on the location of departure.
+The local train station has been struggling with business lately because many travelers can't reach their desired destinations-- some of the train tracks don't connect to certain places due to some one way tracks. To better serve customers, the manager of the station wants to double check which spots are reachable depending on the location of departure.
 
 **Formal Description**:
  * Input: 
@@ -207,33 +207,36 @@ plt.savefig("graph_for_bfs.png")
 
 **Solution Code**:
 ```python
-# Perform the algorithm, then output the result
+# Output the result
 for destination in possible_destinations:
+    print(destination + ": ", end="")
     connected_stops = dict(nx.bfs_successors(possible_destinations, destination))
-    print(destination + ": " + ", ".join(connected_stops[destination]))
+    for stop in connected_stops:
+        print(",".join(list(connected_stops[stop])) + ",", end="")
+    print()
 ```
 
 **Output**:
-* Newark: Wilmington, Claymont, Christiana, Frederica, Dewey
-* Wilmington: Dover, Claymont, Lewes        
-* Dover: Bear, Seaford, Millsboro
-* Middletown: Dover, Newark
-* Lewes: Milton, Newark
-* Millsboro: Bear, Bridgeville
-* Seaford: Georgetown
-* Georgetown: Bear
-* Bear: 
-* Smyrna: Bear, Dover
-* Laurel: Frederica, Dewey, Milton
-* Milton: Claymont, Magnolia
-* Claymont: Frankford, Selbyville
-* Christiana: Newark, Wilmington, Middletown
-* Bridgeville: Dewey, Milton
-* Selbyville: Bear, Frankford, Frederica    
-* Dewey: Frederica, Claymont
-* Frankford: Bear, Milton
-* Magnolia: Georgetown, Smyrna
-* Frederica: Georgetown, Dover
+* Newark: Wilmington,Claymont,Christiana,Frederica,Dewey,Dover,Lewes,Frankford,Selbyville,Middletown,Georgetown,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,
+* Wilmington: Dover,Claymont,Lewes,Bear,Seaford,Millsboro,Frankford,Selbyville,Milton,Newark,Georgetown,Bridgeville,Frederica,Magnolia,Christiana,Dewey,Smyrna,Middletown,
+* Dover: Bear,Seaford,Millsboro,Georgetown,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Frankford,Selbyville,Smyrna,
+* Middletown: Dover,Newark,Bear,Seaford,Millsboro,Wilmington,Claymont,Christiana,Frederica,Dewey,Georgetown,Bridgeville,Lewes,Frankford,Selbyville,Milton,Magnolia,Smyrna,      
+* Lewes: Milton,Newark,Claymont,Magnolia,Wilmington,Christiana,Frederica,Dewey,Frankford,Selbyville,Georgetown,Smyrna,Dover,Middletown,Bear,Seaford,Millsboro,Bridgeville,      
+* Millsboro: Bear,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Georgetown,Dover,Frankford,Selbyville,Smyrna,Seaford,
+* Seaford: Georgetown,Bear,
+* Georgetown: Bear,
+* Bear: ,
+* Smyrna: Bear,Dover,Seaford,Millsboro,Georgetown,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Frankford,Selbyville,
+* Laurel: Frederica,Dewey,Milton,Georgetown,Dover,Claymont,Magnolia,Bear,Seaford,Millsboro,Frankford,Selbyville,Smyrna,Bridgeville,
+* Milton: Claymont,Magnolia,Frankford,Selbyville,Georgetown,Smyrna,Bear,Frederica,Dover,Seaford,Millsboro,Bridgeville,Dewey,
+* Claymont: Frankford,Selbyville,Bear,Milton,Frederica,Magnolia,Georgetown,Dover,Smyrna,Seaford,Millsboro,Bridgeville,Dewey,
+* Christiana: Newark,Wilmington,Middletown,Claymont,Frederica,Dewey,Dover,Lewes,Frankford,Selbyville,Georgetown,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,      
+* Bridgeville: Dewey,Milton,Frederica,Claymont,Magnolia,Georgetown,Dover,Frankford,Selbyville,Smyrna,Bear,Seaford,Millsboro,
+* Selbyville: Bear,Frankford,Frederica,Milton,Georgetown,Dover,Claymont,Magnolia,Seaford,Millsboro,Smyrna,Bridgeville,Dewey,
+* Dewey: Frederica,Claymont,Georgetown,Dover,Frankford,Selbyville,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,
+* Frankford: Bear,Milton,Claymont,Magnolia,Selbyville,Georgetown,Smyrna,Frederica,Dover,Seaford,Millsboro,Bridgeville,Dewey,
+* Magnolia: Georgetown,Smyrna,Bear,Dover,Seaford,Millsboro,Bridgeville,Dewey,Milton,Frederica,Claymont,Frankford,Selbyville,
+* Frederica: Georgetown,Dover,Bear,Seaford,Millsboro,Bridgeville,Dewey,Milton,Claymont,Magnolia,Frankford,Selbyville,Smyrna,
 
 **Interpretation of Results**:
 The resulting dictionary contains key value pairs for each node and its respective list of other nodes that it is connected to. 
