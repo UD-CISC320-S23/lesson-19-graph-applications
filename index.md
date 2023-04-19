@@ -4,7 +4,7 @@
 
 Group Members:
 * Nick Lago (nlago@udel.edu)
-* Second member (email)
+* Patrick Harris (pdharris@udel.edu)
 * Third member (email)
 * Fourth member (email)
 
