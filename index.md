@@ -1,12 +1,12 @@
-# Title of Your Project
+# Team Dragon
 
-**CISC320 Spring 2023 Lesson 14 - Graph Applications**
+**CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
 * Nick Lago (nlago@udel.edu)
-* Second member (email)
-* Third member (email)
-* Fourth member (email)
+* Hongbo Wang (frankw@udel.edu)
+* Patrick Harris (pdharris@udel.edu)
+* John Henry Cooper (jhcoop@udel.edu)
 
 Description of project
 
@@ -30,7 +30,7 @@ import networkx as nx
 >  * Input:
 >  * Output:
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: [SSSP(Djikstras)]
 
 
 **Setup code**:
@@ -54,3 +54,98 @@ import networkx as nx
 
 **Interpretation of Results**:
 
+# Second Problem Title
+
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [MST(Prims)]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:
+
+# Third Problem Title
+
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [DFS]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:
+
+# Fourth Problem Title
+
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [BFS]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:
