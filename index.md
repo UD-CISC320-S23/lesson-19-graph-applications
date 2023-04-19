@@ -67,8 +67,7 @@ import networkx as nx
 
 **Setup code**:
 
-``` import matplotlib.pyplot as plt
-    import networkx as nx
+```import matplotlib.pyplot as plt import networkx as nx
 ```
 
 **Visualization**:
