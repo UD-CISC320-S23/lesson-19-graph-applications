@@ -122,7 +122,7 @@ import networkx as nx
 
 **Visualization**:
 
-![Prims](https://i.ibb.co/FnvVfKj/prims.png)
+![https://i.ibb.co/FnvVfKj/prims.png](MST Graph)
 Minimum spanning tree is shown in blue dashed lines over the edges.
 
 **Solution code:**
@@ -199,7 +199,7 @@ main()
 ('FL', 'OK', {'d': 8.0})  
 ('TX', 'CO', {'d': 8.0})  
 ('AK', 'TN', {'d': 10.0})  
-('RI', 'MS', {'d': 16.0})  
+('RI', 'MS', {'d': 16.0})
 ```
 
 **Interpretation of Results**: These results tell the traveler the path that connects all states' airports in the least distance covered. This can be useful for anyone who is looking to travel to multiple destinations, and wants to be time efficient in doing so. A minimum spanning tree can also be a helpful visual for airlines when choosing optimal routes to fly.
