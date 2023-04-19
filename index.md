@@ -5,7 +5,7 @@
 Group Members:
 * Paul Kearney (paulke@udel.edu)
 * Jon O'Connell (jjoc@udel.edu)
-* Third member (email)
+* Daniel DeFlores (deflores@udel.edu)
 * Fourth member (email)
 
 Description of project
@@ -98,7 +98,7 @@ customers who already paid with these new routes.
 A travel company wants to streamline what flights they give to their customers. After too many complaints about 
 giving long travel days to their clients, they want to now send people to their destination the quickest way.
 Regardless of how, they want to send their clients to the destination as fast as they can. If an Atlanta Falcons fan
-wants to go to Las Vegas to see the Raiders play, which flights should the ailine give them?
+wants to go to Las Vegas to see the Raiders play, which flights should the airline give them?
 
 > **Formal Description**:
 >  * Input: An undirected graph of airports, edges being flight paths that connect terminals,vertices are 
@@ -158,3 +158,86 @@ print(djikstra)
 **Interpretation of Results**:
 The resulting list is an order set of vertices giving the shortest path from the source to the destination.
 For this problem, that is the shortest flight path from Atlanta(ATL) to Las Vegas(LAS).
+
+# Train Scheduling
+**Informal Description**:
+The local train station has been struggling with business lately because many travelers can't reach their desired destinations-- some of the train tracks don't connect to certain places due to some one way tracks. To better serve customers, the manager of the station wants to double check which spots are reachable depending on the location of departure.
+
+**Formal Description**:
+ * Input: 
+    * A directed graph, with the edges being tracks, and the vertices being destinations.
+ * Output: All connected vertices for each node
+
+ **Graph Problem/Algorithm**: BFS
+
+ **Setup Code**:
+ ```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Initialize the graph
+possible_destinations = nx.DiGraph()
+
+# Add each destination as a vertex on the graph
+stops_as_nodes = open("train_stops.txt")
+stops_as_nodes = stops_as_nodes.read().split()
+for node in stops_as_nodes:
+    possible_destinations.add_node(node)
+
+# Add each train track/route as an edge in the graph
+stops_as_edges = open("train_routes.txt")
+stops_as_edges = stops_as_edges.read().split()
+i = 0
+for edge in stops_as_edges:
+    stops_as_edges[i] = edge.split(",")
+    i+=1
+for edge in stops_as_edges:
+    possible_destinations.add_edge(edge[0],edge[1])
+
+# Create a visualization of the graph
+pos = nx.circular_layout(possible_destinations)
+plt.figure(20,figsize=(12,12))
+nx.draw_networkx_edges(possible_destinations, pos)
+nx.draw_networkx(possible_destinations,pos, node_size=100, font_size=16)
+plt.savefig("graph_for_bfs.png")
+```
+**Visualization**:
+
+![bfs graph](graph_for_bfs.png)
+
+**Solution Code**:
+```python
+# Output the result
+for destination in possible_destinations:
+    print(destination + ": ", end="")
+    connected_stops = dict(nx.bfs_successors(possible_destinations, destination))
+    for stop in connected_stops:
+        print(",".join(list(connected_stops[stop])) + ",", end="")
+    print()
+```
+
+**Output**:
+* Newark: Wilmington,Claymont,Christiana,Frederica,Dewey,Dover,Lewes,Frankford,Selbyville,Middletown,Georgetown,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,
+* Wilmington: Dover,Claymont,Lewes,Bear,Seaford,Millsboro,Frankford,Selbyville,Milton,Newark,Georgetown,Bridgeville,Frederica,Magnolia,Christiana,Dewey,Smyrna,Middletown,
+* Dover: Bear,Seaford,Millsboro,Georgetown,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Frankford,Selbyville,Smyrna,
+* Middletown: Dover,Newark,Bear,Seaford,Millsboro,Wilmington,Claymont,Christiana,Frederica,Dewey,Georgetown,Bridgeville,Lewes,Frankford,Selbyville,Milton,Magnolia,Smyrna,      
+* Lewes: Milton,Newark,Claymont,Magnolia,Wilmington,Christiana,Frederica,Dewey,Frankford,Selbyville,Georgetown,Smyrna,Dover,Middletown,Bear,Seaford,Millsboro,Bridgeville,      
+* Millsboro: Bear,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Georgetown,Dover,Frankford,Selbyville,Smyrna,Seaford,
+* Seaford: Georgetown,Bear,
+* Georgetown: Bear,
+* Bear: ,
+* Smyrna: Bear,Dover,Seaford,Millsboro,Georgetown,Bridgeville,Dewey,Milton,Frederica,Claymont,Magnolia,Frankford,Selbyville,
+* Laurel: Frederica,Dewey,Milton,Georgetown,Dover,Claymont,Magnolia,Bear,Seaford,Millsboro,Frankford,Selbyville,Smyrna,Bridgeville,
+* Milton: Claymont,Magnolia,Frankford,Selbyville,Georgetown,Smyrna,Bear,Frederica,Dover,Seaford,Millsboro,Bridgeville,Dewey,
+* Claymont: Frankford,Selbyville,Bear,Milton,Frederica,Magnolia,Georgetown,Dover,Smyrna,Seaford,Millsboro,Bridgeville,Dewey,
+* Christiana: Newark,Wilmington,Middletown,Claymont,Frederica,Dewey,Dover,Lewes,Frankford,Selbyville,Georgetown,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,      
+* Bridgeville: Dewey,Milton,Frederica,Claymont,Magnolia,Georgetown,Dover,Frankford,Selbyville,Smyrna,Bear,Seaford,Millsboro,
+* Selbyville: Bear,Frankford,Frederica,Milton,Georgetown,Dover,Claymont,Magnolia,Seaford,Millsboro,Smyrna,Bridgeville,Dewey,
+* Dewey: Frederica,Claymont,Georgetown,Dover,Frankford,Selbyville,Bear,Seaford,Millsboro,Milton,Bridgeville,Magnolia,Smyrna,
+* Frankford: Bear,Milton,Claymont,Magnolia,Selbyville,Georgetown,Smyrna,Frederica,Dover,Seaford,Millsboro,Bridgeville,Dewey,
+* Magnolia: Georgetown,Smyrna,Bear,Dover,Seaford,Millsboro,Bridgeville,Dewey,Milton,Frederica,Claymont,Frankford,Selbyville,
+* Frederica: Georgetown,Dover,Bear,Seaford,Millsboro,Bridgeville,Dewey,Milton,Claymont,Magnolia,Frankford,Selbyville,Smyrna,
+
+**Interpretation of Results**:
+The resulting dictionary contains key value pairs for each node and its respective list of other nodes that it is connected to. 
+That is, which destinations can be accessed from a given train departure location. Each key value pair is output.
