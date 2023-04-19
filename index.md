@@ -54,9 +54,9 @@ import networkx as nx
 
 **Interpretation of Results**:
 
-# Minimum Distance Path (Prims)
+# Minimum Distance Path (Kruskals)
 
-**Informal Description**: Prims Algorithm finds the minimum spanning tree of a given weighted undirected graph. In this case, the algorithm finds the flight path with the minimum distance covered in order to still reach every location/airport.
+**Informal Description**: Kruskals Algorithm finds the minimum spanning tree of a given weighted undirected graph. In this case, the algorithm finds the flight path with the minimum distance covered in order to still reach every location/airport.
 
 > **Formal Description**:
 >  * Input: Flights.csv:  
@@ -112,7 +112,7 @@ AK,PA,55
 ('AK', 'TN', {'d': 10.0})
 ('RI', 'MS', {'d': 16.0})
 
-**Graph Problem/Algorithm**: [MST (Prims)]
+**Graph Problem/Algorithm**: [MST (Kruskals)]
 
 
 **Setup code**:
