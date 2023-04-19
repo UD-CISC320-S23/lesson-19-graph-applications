@@ -67,18 +67,18 @@ import networkx as nx
 
 **Setup code**:
 
-```import matplotlib.pyplot as plt
+``` import matplotlib.pyplot as plt
     import networkx as nx
 ```
 
 **Visualization**:
 
-```prims.png
-```
+![Prims Graph](https://i.ibb.co/FnvVfKj/prims.png)
 
 **Solution code:**
 
-```def main():
+```
+    def main():
     with open("Flights.csv") as data_file:
         lines = data_file.readlines()
     
@@ -123,8 +123,6 @@ import networkx as nx
 
     
 main()
-
-```
 
 **Output**
 
