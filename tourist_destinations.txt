@@ -26,7 +26,7 @@ SanDiego,LA_Airport,3
 LA_Airport,SantaCruz,10
 Disneyland,LA_Airport,2
 JoshuaTree,Yosemite,12
-SanDiego,LakeTahoe,9
+SanDiego,LakeTahoe,9Fresno, California
 GoldenGateBridge,SantaCruz,6
 SanFrancisco,SantaCruz,3
 SanFrancisco,PalmSprings,12
@@ -41,3 +41,12 @@ USSMidwayMuseum,PalmSprings,11
 GettyCenter,USSMidwayMuseum,5
 HearstCastle,LakeTahoe,2
 LakeTahoe,Yosemite,5
+Disneyland,Yosemite,2
+Disneyland,PalmSprings,3
+UniversalStudios,SequoiaPark,5
+UniversalStudios,JoshuaTree,10
+Fresno,VeniceBeach,9
+LA_Airport,VeniceBeach,1
+LakeTahoe,GoldenGateBridge,9
+HearstCastle,GoldenGateBridge,2
+SanFrancisco,SanDiego,12

@@ -28,7 +28,7 @@ import networkx as nx
 # busing in CA
 **Informal Description**: 
 A tour bus company based in LA wants to map out new routes and want to stop as often as possible to
-pick up new travelers, but also stop at every popular tourist destination. in order to do this, the bussing 
+pick up new travelers, but also stop at every popular tourist destination. in order to do this, the tour bus 
 company wants to pick routes such that the bus drives on the shortest road to get to each location.
 > **Formal Description**:
 >  * Input: An undirected graph of tourist destinations. edges being roads that connect destinations,vertices 
@@ -45,7 +45,6 @@ edges = []
 with open("tourist_destinations.txt") as data_file:
     lines: list[str]
     lines = data_file.readlines()
-
 edgeList = lines[1:]
 destinations = nx.Graph()
 for edge in edgeList:
@@ -53,25 +52,46 @@ for edge in edgeList:
 for edge in edges:
     test = edge[2]
     destinations.add_edge(edge[0], edge[1], weight=int(edge[2]))
+pos = nx.circular_layout(destinations)
+plt.figure(20,figsize=(12,12))
+labels = nx.get_edge_attributes(destinations,'weight')
+nx.draw_networkx(destinations,pos, node_size=100, font_size=16)
+nx.draw_networkx_edge_labels(destinations,pos,edge_labels=labels)
+plt.savefig("graph_for_prims.png")
 ```
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![prim graph](graph_for_prims.png)
 
 **Solution code:**
 
 ```python
-solution = nx.minimum_spanning_tree(destinations,algorithm="prim",data=False)
+solution = nx.minimum_spanning_tree(destinations,algorithm="prim")
 print(solution.edges(data=True))
 
 ```
 
 **Output**
-edgelist = list(solution)
 ```
+[('GoldenGateBridge', 'BigSur', {'weight': 3}), ('GoldenGateBridge', 'HearstCastle', {'weight': 2}),
+('PalmSprings', 'Disneyland', {'weight': 3}), ('Disneyland', 'LA_Airport', {'weight': 2}),
+('Disneyland', 'Yosemite', {'weight': 2}), ('Disneyland', 'DeathValley', {'weight': 4}),
+('DeathValley', 'JoshuaTree', {'weight': 6}), ('BigSur', 'Fresno', {'weight': 3}),
+('BigSur', 'SanFrancisco', {'weight': 3}), ('SantaCruz', 'SanFrancisco', {'weight': 3}),
+('LakeTahoe', 'HearstCastle', {'weight': 2}), ('SequoiaPark', 'LA_Airport', {'weight': 4}), 
+('KingsCanyon', 'VeniceBeach', {'weight': 3}), ('LA_Airport', 'VeniceBeach', {'weight': 1}), 
+('LA_Airport', 'UniversalStudios', {'weight': 1}), ('LA_Airport', 'GettyCenter', {'weight': 2}),
+('LA_Airport', 'SanDiego', {'weight': 3}), ('LA_Airport', 'Fresno', {'weight': 5}), ('SanDiego',
+'USSMidwayMuseum', {'weight': 1}), ('SanDiego', 'SanDiegoZoo', {'weight': 1})]
+
+
 ```
 
 **Interpretation of Results**:
+LA seems to be a great location for the tour bus company as it is around so many attractions and there are many
+short roads connected to the LA airport. The buses can stop often to bring in new customers and drop off
+customers who already paid with these new routes.
+
 
 # Travel Company Troubles
 **Informal Description**: 
