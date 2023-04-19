@@ -165,15 +165,16 @@ The local train station has been struggling with business lately because many tr
 
 **Formal Description**:
  * Input: 
-    * A directed graph, with the edges being tracks
-    * and the vertices being destinations.
+    * A directed graph, with the edges being tracks, and the vertices being destinations.
  * Output: All connected vertices for each node
+
  **Graph Problem/Algorithm**: BFS
 
  **Setup Code**:
  ```python
 import networkx as nx
 import matplotlib.pyplot as plt
+
 # Initialize the graph
 possible_destinations = nx.DiGraph()
 
@@ -207,12 +208,33 @@ plt.savefig("graph_for_bfs.png")
 **Solution Code**:
 ```python
 # Perform the algorithm, then output the result
-connected_stops = dict(nx.bfs_successors(possible_destinations))
-print(connected_stops)
+for destination in possible_destinations:
+    connected_stops = dict(nx.bfs_successors(possible_destinations, destination))
+    print(destination + ": " + ", ".join(connected_stops[destination]))
 ```
 
 **Output**:
+* Newark: Wilmington, Claymont, Christiana, Frederica, Dewey
+* Wilmington: Dover, Claymont, Lewes        
+* Dover: Bear, Seaford, Millsboro
+* Middletown: Dover, Newark
+* Lewes: Milton, Newark
+* Millsboro: Bear, Bridgeville
+* Seaford: Georgetown
+* Georgetown: Bear
+* Bear: 
+* Smyrna: Bear, Dover
+* Laurel: Frederica, Dewey, Milton
+* Milton: Claymont, Magnolia
+* Claymont: Frankford, Selbyville
+* Christiana: Newark, Wilmington, Middletown
+* Bridgeville: Dewey, Milton
+* Selbyville: Bear, Frankford, Frederica    
+* Dewey: Frederica, Claymont
+* Frankford: Bear, Milton
+* Magnolia: Georgetown, Smyrna
+* Frederica: Georgetown, Dover
 
-**Interpretation of Reults**:
+**Interpretation of Results**:
 The resulting dictionary contains key value pairs for each node and its respective list of other nodes that it is connected to. 
-That is, which destinations can be accessed from a given train departure location. 
+That is, which destinations can be accessed from a given train departure location. Each key value pair is output.
