@@ -67,16 +67,63 @@ import networkx as nx
 
 **Setup code**:
 
-```python
+```import matplotlib.pyplot as plt
+    import networkx as nx
 ```
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+```prims.png
+```
 
 **Solution code:**
 
-```python
+```def main():
+    with open("Flights.csv") as data_file:
+        lines = data_file.readlines()
+    
+    G=nx.Graph()
+
+    for line in lines:
+        start, end, weight = line.strip("\n").split(",")
+        weight=float(weight)
+        G.add_edge(start, end, d=weight)
+
+    MST = nx.minimum_spanning_tree(G, weight="d", algorithm="kruskal")
+    
+    pos = nx.spring_layout(G)
+
+    nx.draw_networkx(G, pos, node_color='#0091e6', node_size=300,
+                     font_size=7,
+                     font_color='white',
+                     edge_color='black',
+                     font_weight='bold',
+                     width=3,
+                     with_labels=True)
+    
+
+    
+
+
+    nx.draw_networkx_edges(MST, pos, edge_color='#0091e6', style='dashed', width=3)
+
+    nx.draw_networkx_edge_labels(G, pos, 
+        label_pos=0.5, 
+        font_size=4, 
+        font_color='k', 
+        font_family='sans-serif',
+        font_weight='bold', 
+        horizontalalignment='center', 
+        verticalalignment="bottom",
+        rotate=True, 
+        clip_on=True)
+        
+    plt.axis('off')
+    plt.show()
+
+    
+main()
+
 ```
 
 **Output**
