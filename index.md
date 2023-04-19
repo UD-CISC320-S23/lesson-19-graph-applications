@@ -59,7 +59,8 @@ import networkx as nx
 **Informal Description**: Prims Algorithm finds the minimum spanning tree of a given weighted undirected graph. In this case, the algorithm finds the flight path with the minimum distance covered in order to still reach every location/airport.
 
 > **Formal Description**:
->  * Input: NY,NJ,4
+>  * Input: Flights.csv:  
+NY,NJ,4
 NY,RI,7
 NJ,CT,6
 RI,CT,1
@@ -88,7 +89,8 @@ ME,FL,20
 OK,MS,5
 IL,TN,50
 OH,CO,60
-AK,PA,55
+AK,PA,55  
+
 >  * Output: Graph with 20 nodes and 19 edges
 ('RI', 'CT', {'d': 1.0})
 ('IL', 'OH', {'d': 1.0})
@@ -110,17 +112,18 @@ AK,PA,55
 ('AK', 'TN', {'d': 10.0})
 ('RI', 'MS', {'d': 16.0})
 
-**Graph Problem/Algorithm**: [MST(Prims)]
+**Graph Problem/Algorithm**: [MST (Prims)]
 
 
 **Setup code**:
 
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt  
 import networkx as nx
 
 **Visualization**:
 
-![https://i.ibb.co/FnvVfKj/prims.png](https://i.ibb.co/FnvVfKj/prims.png)
+![Prims](https://i.ibb.co/FnvVfKj/prims.png)
+Minimum spanning tree is shown in blue dashed lines over the edges.
 
 **Solution code:**
 
@@ -177,10 +180,29 @@ main()
 
 **Output**
 
-```
+```Graph with 20 nodes and 19 edges  
+('RI', 'CT', {'d': 1.0})  
+('IL', 'OH', {'d': 1.0})  
+('AK', 'MS', {'d': 1.0})  
+('NY', 'NH', {'d': 3.0})  
+('LO', 'AK', {'d': 3.0})  
+('NY', 'NJ', {'d': 4.0})  
+('TX', 'OK', {'d': 4.0})  
+('KY', 'MN', {'d': 4.0})  
+('KY', 'LO', {'d': 4.0})  
+('RI', 'PA', {'d': 5.0})  
+('TX', 'KY', {'d': 5.0})  
+('NJ', 'CT', {'d': 6.0})  
+('NJ', 'ME', {'d': 6.0})  
+('MN', 'IL', {'d': 6.0})  
+('CT', 'VA', {'d': 7.0})  
+('FL', 'OK', {'d': 8.0})  
+('TX', 'CO', {'d': 8.0})  
+('AK', 'TN', {'d': 10.0})  
+('RI', 'MS', {'d': 16.0})  
 ```
 
-**Interpretation of Results**:
+**Interpretation of Results**: These results tell the traveler the path that connects all states' airports in the least distance covered. This can be useful for anyone who is looking to travel to multiple destinations, and wants to be time efficient in doing so. A minimum spanning tree can also be a helpful visual for airlines when choosing optimal routes to fly.
 
 # Third Problem Title
 
