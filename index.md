@@ -72,7 +72,7 @@ import networkx as nx
 
 **Visualization**:
 
-![https://i.ibb.co/FnvVfKj/prims.png](Prims)
+![https://i.ibb.co/FnvVfKj/prims.png](https://i.ibb.co/FnvVfKj/prims.png)
 
 **Solution code:**
 
