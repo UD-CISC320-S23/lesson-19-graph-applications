@@ -1,5 +1,12 @@
+#using DFS to find out how many components exist in this graph. The application of this is that this deteremines how many social
+#groups that exist and can be used in  social media studies and of just people in general in anctient histroy to help us understand]
+#some of the social dynamics that existed, DFS works like this: we explore all of the nodes that are connected and once
+# we reach a case where vertices exist but no edges exist we know we have found a component. Then we can selcent any vertice
+# and complete this process incrementing count each time we find an other component. Then return our componenet at the end
+
 import networkx as nx
 import matplotlib.pyplot as plt
+
 
 G = nx.Graph()
 G.add_node("K") #King
@@ -43,3 +50,5 @@ G.add_edge("Prank", "Ma")
 
 nx.draw(G,node_color = "red",with_labels=True, node_size= 300 )
 plt.show()
+
+print(nx.number_connected_components(G))
