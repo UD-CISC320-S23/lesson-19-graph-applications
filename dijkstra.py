@@ -1,1 +1,3 @@
-# Testing git commands and branches asda
+import networkx as nx
+
+G = nx.Graph()
