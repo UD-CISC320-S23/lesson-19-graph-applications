@@ -52,6 +52,18 @@ G = nx.DiGraph()
 # Add the edges to the graph
 G.add_edges_from(edges)
 
+# Perform DFS traversal and print the nodes visited
+visited = set()
+
+def dfs(node):
+    visited.add(node)
+    print(node)
+    for neighbor in G.neighbors(node):
+        if neighbor not in visited:
+            dfs(neighbor)
+            
+dfs("https://acbart.github.io/")
+
 # Draw the graph
 pos = nx.spring_layout(G, seed=11, k = 2)
 plt.figure(figsize=(10, 10))
@@ -62,3 +74,5 @@ nx.draw_networkx_labels(G, pos, font_size=6, font_family="sans-serif")
 
 plt.axis("off")
 plt.show()
+
+
