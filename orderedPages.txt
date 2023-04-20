@@ -1,0 +1,81 @@
+ "https://acbart.github.io/": "Checked"
+
+ "https://acbart.github.io/python-sneks/": "Checked"
+
+
+ "https://acbart.github.io/awards/": "Checked"
+
+ "https://acbart.github.io/blog/": "Checked"
+
+ "https://acbart.github.io/completed-projects/": "Checked"
+
+ "https://acbart.github.io/contact/": "Checked"
+
+ "https://acbart.github.io/potential-projects/": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/": "Checked"
+
+ "https://acbart.github.io/sigcse-escapes-22/": "Checked"
+
+ "https://acbart.github.io/sigcse-escapes-23/": "Checked"
+
+ "https://acbart.github.io/students/": "Checked"
+
+ "https://acbart.github.io/teaching-and-mentoring/": "Checked"
+
+ "https://acbart.github.io/papers/Bart_CV.pdf": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks": "Checked"
+
+
+ "https://acbart.github.io/runtime-case-builder/?preload=RCB_find_with_break_dynamic.json": "Checked"
+
+ 
+ "https://acbart.github.io/python-sneks/python-sneks/interventions.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/guide_overview.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/learner_analysis.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/course_topics.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/staff_roles.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/tools.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/design_decisions.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/course_setup.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/module_guide.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/course_explanations.html": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/alternatives.html": "Checked"
+
+ "https://acbart.github.io/teaching-and-mentoring/files/np-hard-infographic-kbagshaw-clique-cover.pdf": "Checked"
+
+ "https://acbart.github.io/teaching-and-mentoring/files/np-hard-infographic-abobo-bridge-capacitated-minimum.png": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/acbart-sigcse19-sneks.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/p160-gusukuma.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/s03-gusukuma.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/Bart_AC_D_2017.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/dissertation-acbart-slides.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/p66-bart-inroads.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/acbart-sigcse17-corgis.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/compsac-paper367.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/blockpy-position-paper.pdf": "Checked"
+
+ "https://acbart.github.io/publications-and-posters/papers/p63-kafura.pdf": "Checked"
+
+ "https://acbart.github.io/python-sneks/python-sneks/sigcse/sigcse19-python-sneks.pdf": "Checked"
+
