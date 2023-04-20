@@ -107,7 +107,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![Prims Graph](prims_graph1.png)
 
 **Solution code:**
 
