@@ -111,7 +111,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](webpage graph.png)
+![Image goes here](webpagegraph.png)
 
 **Solution code:**
 
