@@ -8,7 +8,7 @@ Group Members:
 * Third member (email)
 * Fourth member (email)
 
-Description of project- testing testing
+Description of project- The theme of our project is "Internet networks and Information" we will use various graph algorithms to explore our Professors website pages and subpages!
 
 Description of project
 Here is will the explanation of our project will go 
@@ -16,6 +16,7 @@ Here is will the explanation of our project will go
 
 ```sh
 $> pip install networkx
+
 ```
 
 ## Python Environment Setup
@@ -24,13 +25,13 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
-
+# Website Page Traversal
+We will explore the entirety of our Professor, Dr.Bart's, website! Given a list of pages as an undirected graph, we will use a Depth First Search traversal to visit every page on the website.
 **Informal Description**: 
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: An undirected graph of website pages and subpages 
+>  * Output: List of all the pages we have visited 
 
 **Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
 
