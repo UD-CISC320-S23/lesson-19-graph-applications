@@ -1,46 +1,3 @@
-# Internet Networks and Information
-
-**CISC320 Spring 2023 Lesson 14 - Graph Applications**
-
-Group Members:
-* Christian Kuhn  (kuhnc@udel.edu)
-* Second member (email)
-* Third member (email)
-* Fourth member (email)
-
-The theme of our project is "Internet networks and Information" we will use various graph algorithms to explore our Professor's website pages and subpages!
-
- 
-## Installation Code
-
-```sh
-$> pip install networkx
-$> pip install matplotlib
-
-
-```
-
-## Python Environment Setup
-
-```python
-import networkx as nx
-import matplotlib.pyplot as plt
-
-```
-
-# Website Page Traversal
-**DFS Page Traversal**: We will explore the entirety of our Professor, Dr.Bart's, website! Given a list of pages as edges, we will create a graph and use a Depth First Search traversal to visit every page on the website.
-
-> **Formal Description**:
->  * Input: An= directed graph of website pages and subpages 
->  * Output: List of all the pages we have visited 
-
-**Graph Problem/Algorithm**: [DFS]
-
-
-**Setup code**:
-
-```
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -95,27 +52,6 @@ G = nx.DiGraph()
 # Add the edges to the graph
 G.add_edges_from(edges)
 
-# Draw the graph
-pos = nx.spring_layout(G, seed=11, k = 2)
-plt.figure(figsize=(10, 10))
-
-nx.draw_networkx_nodes(G, pos, node_color="lightblue")
-nx.draw_networkx_edges(G, pos, edgelist=edges[:45], width=.5, edge_color="black")
-nx.draw_networkx_labels(G, pos, font_size=6, font_family="sans-serif")
-
-plt.axis("off")
-plt.show()
-
-
-```
-
-**Visualization**:
-
-![Image goes here](webpagegraph.png)
-
-**Solution code:**
-
-```
 # Perform DFS traversal and print the nodes visited
 visited = set()
 
@@ -127,55 +63,16 @@ def dfs(node):
             dfs(neighbor)
             
 dfs("https://acbart.github.io/")
-```
 
-**Output**
+# Draw the graph
+pos = nx.spring_layout(G, seed=11, k = 2)
+plt.figure(figsize=(10, 10))
 
-```
-https://acbart.github.io/
-/python-sneks/
-learner_analysis.html
-/course_faq.html
-/assignments.html
-python-sneks
-/tools.html
-/interventions.html
-/guide_overview.html
-/learner_analysis.html
-/course_topics.html
-/staff_roles.html
-/design_decisions.html
-/course_setup.html
-/module_guide.html
-/course_explanations.html
-/alternatives.html
-/awards/
-/blog/
-/completed-projects/
-/contact/
-/potential-projects/
-/publications-and-posters/
-/sigcse-escapes-22/
-/sigcse-escapes-23/
-/students/
-/teaching-and-mentoring/
-/files/np-hard-infographic-kbagshaw-clique-cover.pdf
-/files/np-hard-infographic-abobo-bridge-capacitated-minimum.png
-/papers/
-acbart-sigcse19-sneks.pdf
-p160-gusukuma.pdf
-s03-gusukuma.pdf
-Bart_AC_D_2017.pdf
-dissertation-acbart-slides.pdf
-p66-bart-inroads.pdf
-acbart-sigcse17-corgis.pdf
-compsac-paper367.pdf
-blockpy-position-paper.pdf
-p63-kafura.pdf
-sigcse19-python-sneks.pdf
-runtime-case-builder/?preload=RCB_find_with_break_dynamic.json
-```
+nx.draw_networkx_nodes(G, pos, node_color="lightblue")
+nx.draw_networkx_edges(G, pos, edgelist=edges[:45], width=.5, edge_color="black")
+nx.draw_networkx_labels(G, pos, font_size=6, font_family="sans-serif")
 
-**Interpretation of Results**:
-The result of the DFS traversal is the order in which the nodes (web pages) of the website were visited. The traversal started at the root node, "https://acbart.github.io/", and then explored the nodes in depth-first order, visiting all the pages linked from each page before backtracking. The result shows the hierarchical structure of the website, with pages visited in a depth-first manner. This order can be useful for analyzing the website's structure and content.
+plt.axis("off")
+plt.show()
+
 
