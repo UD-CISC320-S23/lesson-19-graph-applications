@@ -22,7 +22,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# Determining if there are enough pilots to fly every flight
+# Determining if there are enough pilots (Breadth First Search)
 
 **Informal Description**: 
 The airport has a list of available pilots and a list of flights in need of a pilot. The problem is that each pilot has 
