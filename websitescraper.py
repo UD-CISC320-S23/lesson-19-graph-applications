@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 import json
-
+##webscraper code provided from https://plainenglish.io/blog/scraping-the-subpages-on-a-website-ea2d4e3db113#3-write-a-function-for-getting-all-links-from-one-page-and-store-them-in-a-list
 ##function for getting text data from url
 
 def getdata(url):
