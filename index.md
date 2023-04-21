@@ -1,4 +1,4 @@
-# Title of Your Project
+# Solutions to common Campus problems
 
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
@@ -8,7 +8,13 @@ Group Members:
 * Third member (email)
 * Fourth member (email)
 
-Description of project
+The focus of our project is to address various campus problems at the University of Delaware using algorithms such as Dijkstra, Prim's, and DFS. To accomplish this, we have developed two separate graphs that can be used to model and solve different types of problems.
+
+The first graph is location-based and represents the different buildings on the UDel campus. By using algorithms like Dijkstra, we can find the shortest path between two buildings, which can be helpful in determining the most efficient way to get around campus. Additionally, we can use algorithms like Prim's to find the minimum spanning tree of the graph, which can help with planning and optimizing routes for maintenance and construction.
+
+The second graph is based on courses and their prerequisites. By using algorithms like DFS, we can determine the path needed to take a certain course, which would help students plan and decide their future course choices. This information can be used to help students plan their academic schedules more effectively.
+
+Overall, our project aims to provide solutions to a variety of campus problems by leveraging the power of algorithms and graph theory. By utilizing these tools, we can optimize routes, identify potential scheduling conflicts, and ultimately make life on campus a little bit easier for everyone.
 
 ## Installation Code
 
