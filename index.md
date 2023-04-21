@@ -4,7 +4,7 @@
 
 Group Members:
 * Rohan Yarlagadda (rohany@udel.edu)
-* Second member (email)
+* Avinash Chouhan (avinashc@udel.edu)
 * Third member (email)
 * Fourth member (email)
 
