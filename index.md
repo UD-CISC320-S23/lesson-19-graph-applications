@@ -54,37 +54,71 @@ import networkx as nx
 
 **Interpretation of Results**:
 
-# Second Problem Title
+# Campus Shortest Path Problem
 
-**Informal Description**: 
+**Shortest Path Problem**: A student want's to figure out the fastest way to get from one building on campus to another. It's integral for them to find the fastest path as they are late for a meeting. Help the student find the shortest path from their current location to their meeting location. 
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: Graph of locations of the Udel Campus, withe weights representing the distance from one node to another. 
+>  * Output: A path of the shortest distance from the start to the target location. 
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: Dijkstra's Algorithm
 
 
 **Setup code**:
 
-```python
+```
+class locationGraph: 
+    import networkx as nx
+
+    g = nx.Graph()
+    g.add_edge("Frazer Field", "Lil Bob", weight = 1)
+    g.add_edges_from([("Lil Bob", "Taylor"), ("Lil Bob", "Old College"), ("Lil Bob", "Brown Hall")], weight = 3)
+    g.add_edges_from([("Willard Hall", "McDowell Hall"), ("Willard Hall", "Old College"), ("Willard Hall", "Trabant")], weight = 2)
+    g.add_edge("Taylor", "Old College", weight = 1)
+    g.add_edges_from([("Brown Hall", "Harter"), ("Brown Hall", "Sypherd"), ("Brown Hall", "Sharp Hall")], weight = 1)
+    g.add_edges_from([("Harter", "Sypherd"), ("Harter", "Sharp Hall")], weight = 1)
+    g.add_edges_from([("Trabant", "Kirkbride"), ("Trabant", "Sharp Lab"), ("Trabant", "Ewing")], weight = 3)
+    g.add_edges_from([("Kirkbride", "Ewing"), ("Kirkbride", "Purnell"), ("Kirkbride", "Smith")], weight = 1)
+    g.add_edges_from([("Ewing", "Purnell"), ("Ewing", "Smith")], weight = 1)
+    g.add_edge("Purnell", "Smith", weight = 1)
+    g.add_edges_from([("Sharp Lab", "Wolf"), ("Sharp Lab", "Gore")], weight = 2)
+    g.add_edges_from([("Gore", "Mitchell"), ("Gore", "Memorial"), ("Gore", "Brown Lab"), ("Gore", "Smith")], weight = 2)
+    g.add_edges_from([("Brown Lab", "Colburn"), ("Brown Lab", "ICE")], weight = 4)
+    g.add_edges_from([("Morris", "Memorial"), ("Morris", "Allison"), ("Morris", "Perkins")], weight = 3)
+    g.add_edges_from([("Perkins", "Redding"), ("Perkins", "Russel"), ("Perkins", "Harrington")], weight = 3)
+    g.add_edges_from([("Harrington", "Russel"), ("Harrington", "Redding")], weight = 2)
+    g.add_edge("Redding", "Russel", weight = 2)
+    g.add_edges_from([("ICE", "Penny"), ("ICE", "Colburn"), ("ICE", "Spencer Lab")], weight = 3)
+    g.add_edge("Spencer Lab", "Colburn", weight = 2)
+    g.add_edges_from([("Allison", "Perkins"), ("Allison", "Penny")], weight = 4)
+
 ```
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![Graph of important building on UDel Campus](/graphviz.png "UDel campus location graph")
 
 **Solution code:**
 
-```python
+```
+class dijkstra: 
+    import networkx as nx
+    import locationGraph
+
+    # Find shortest path from Willard Hall to Perkins
+    ans_path = nx.dijkstra_path(locationGraph.g, "Willard Hall", "Perkins")
+    print(f'To get from Willard to Perkins using the shortest path you need to follow this path:\n\t{ans_path}')
 ```
 
 **Output**
 
 ```
+To get from Willard to Perkins using the shortest path you need to follow this path:     
+        ['Willard Hall', 'Trabant', 'Sharp Lab', 'Gore', 'Memorial', 'Morris', 'Perkins']
 ```
 
-**Interpretation of Results**:
+**Interpretation of Results**: If a student located at Willard Hall wants to travel to reach Perkins as fast as possible they would have to follow this path, ['Willard Hall', 'Trabant', 'Sharp Lab', 'Gore', 'Memorial', 'Morris', 'Perkins']. This is the shortest path from Willard to perkins and would therefore take the shortest amount of time. 
 
 # Third Problem Title
 
