@@ -74,7 +74,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![Image goes here](locationGraph.png)
 
 **Solution code:**
 
@@ -89,8 +89,7 @@ plt.show()
 
 **Output**
 
-```
-```
+![Image goes here](PrimsPath.png)
 
 **Interpretation of Results**:
 
