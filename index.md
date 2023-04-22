@@ -26,7 +26,7 @@ $> pip install networkx
 
 ```python
 import networkx as nx
-import locationGraph
+import matplotlib.pyplot as plt
 ```
 
 # Prim's Algorithm
