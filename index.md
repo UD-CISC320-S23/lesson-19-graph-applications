@@ -89,7 +89,7 @@ plt.show()
 
 **Output**
 
-![Image goes here](./PrimsPath.png)
+![Image goes here](./PrimsPathFinal.png)
 
 **Interpretation of Results**:
 
