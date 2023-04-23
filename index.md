@@ -4,7 +4,7 @@
 
 Group Members:
 * Christian Kuhn  (kuhnc@udel.edu)
-* Second member (email)
+* Madeline Pearce (mpearce@udel.edu)
 * Third member (email)
 * Fourth member (email)
 
