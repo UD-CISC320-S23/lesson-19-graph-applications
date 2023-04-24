@@ -161,7 +161,7 @@ Find courses needed problem: Iterates through all nodes and edges to find all th
 **Setup code**:
 
 ```python
-```
+
 class classesNeeded: 
     import matplotlib.pyplot as plt
     import networkx as nx
@@ -181,6 +181,7 @@ class classesNeeded:
     g.add_edge("CISC275", "CISC474")
     nx.draw(G,node_color = "red",with_labels=True, node_size= 330 )
 
+```
 
 **Visualization**:
 ![DFS graph image](DFS-Graph.png)
@@ -188,12 +189,13 @@ class classesNeeded:
 **Solution code:**
 
 ```python
-```
+
 import networkx as nx
 import classesNeeded
 
 print(nx.number_connected_components(classesNeeded.g))
 
+```
 
 **Output**
 
