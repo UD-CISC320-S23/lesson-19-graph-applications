@@ -154,10 +154,10 @@ To get from Willard to Perkins using the shortest path you need to follow this p
 FIND COURSES NEEDED FOR BS COMPUTER SCIENCE MAJOR
 **Informal Description**: 
 
-Find courses needed problem: Iterates through all nodes and edges to find all the classes on the graph that a computer science student needs to take. This is important because if a student needs to know what classes to take, this graph and DFS algorithm shows the student the order of which classes to take.
+Find courses needed problem: Iterates through all nodes and edges to find all the classes on the graph that a computer science student needs to take. It then groups up all of these classes through their connections and shows what classes a student needs to take in each subject breaking down enlgish, science, and math/computer science. This is important because if a student needs to know what classes to take, this graph and DFS algorithm shows the student the order of which classes to take.
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: Graph of classes, with same topic/pre-req nodes connected to eachoteher
+>  * Output: 3 seperate groups of connected nodes representing which pre-reqs to take for which class, and the specific classes to take for each subject.
 **Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
 **Graph Problem/Algorithm**: [DFS]
 
@@ -166,39 +166,41 @@ Find courses needed problem: Iterates through all nodes and edges to find all th
 
 ```python
 ```
-class locationGraph: 
+class classesNeeded: 
+    import matplotlib.pyplot as plt
     import networkx as nx
 
     g = nx.Graph()
-    g.add_edge("CISC108", "CISC181", weight = 1)
-    g.add_edges_from([("CISC210", "CISC275"), ("CISC210", "CISC220"), ("CISC210", "CISC260")], weight = 3)
+    g.add_edge("CISC108", "CISC181")
+    g.add_edges_from([("CISC210", "CISC275"), ("CISC210", "CISC220"), ("CISC210", "CISC260")])
     g.add_edges("CISC108", "CISC210", weight = 2)
     g.add_edge("MATH210", "CISC320" weight = 3)
-    g.add_edges_from([("CISC220", "CISC320"), ("CISC220", "CISC361"), ("CISC220", "CISC304"),("CISC220","CISC372")], weight = 1)
-    g.add_edges_from([("CISC260", "CISC361"), ("CISC260", "CISC372")], weight = 1)
-    g.add_edge("MATH241", "MATH210" weight = 4)
-    g.add_edge("ENGL110", "ENGL410" weight = 5)
-    g.add_edge("GEOL105L", "GEOL107" weight = 2)
-    g.add_edge("GEOL105", "GEOL105L" weight = 1)
-    g.add_edge("GEOL107", "GEOL107L" weight = 1)
-    g.add_edge("CISC275", "CISC474" weight = 3)
+    g.add_edges_from([("CISC220", "CISC320"), ("CISC220", "CISC361"), ("CISC220", "CISC304"),("CISC220","CISC372")])
+    g.add_edges_from([("CISC260", "CISC361"), ("CISC260", "CISC372")])
+    g.add_edge("MATH241", "MATH210")
+    g.add_edge("ENGL110", "ENGL410")
+    g.add_edge("GEOL105L", "GEOL107")
+    g.add_edge("GEOL105", "GEOL105L")
+    g.add_edge("GEOL107", "GEOL107L")
+    g.add_edge("CISC275", "CISC474")
+    nx.draw(G,node_color = "red",with_labels=True, node_size= 330 )
 
 
 **Visualization**:
-
-![Image goes here](Relative image filename goes here)
-![Image goes here] DFS-graph.png
+![Image goes here] (./DFS-Graph.png)
 
 **Solution code:**
 
 ```python
 ```
 import networkx as nx
-import locationGraph
-import matplotlib.pyplot as plt
+import classesNeeded
 
-    pathway = nx.dfs_edges(locationGraph.g, source=None, depth_limit=None)
-    dfsTree = nx.dfs_tree(locationGraph.g,source=None,depth_limit=None)
+print(nx.number_connected_components(classesNeeded.g))
 
 
 **Output**
+
+3
+
+**Interpretation of Results**: The number 3 represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.

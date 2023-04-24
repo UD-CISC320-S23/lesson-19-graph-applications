@@ -1,7 +1,6 @@
 import networkx as nx
-import classesNeeded
+import matplotlib.pyplot as plt
 
-'''
 g = nx.Graph()
 g.add_edge("CISC108", "CISC181")
 g.add_edges_from([("CISC210", "CISC275"), ("CISC210", "CISC220"), ("CISC210", "CISC260")])
@@ -17,7 +16,3 @@ g.add_edge("GEOL107", "GEOL107L")
 g.add_edge("CISC275", "CISC474")
 nx.draw(g,node_color = "red",with_labels=True, node_size= 330 )
 plt.show()
-'''
-
-
-print({nx.number_connected_components(classesNeeded.g)})
