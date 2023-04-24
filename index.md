@@ -184,7 +184,7 @@ class classesNeeded:
 ```
 
 **Visualization**:
-![DFS graph image](DFS-Graph.png)
+![DFS graph image](./DFS-Graph.png)
 
 **Solution code:**
 
@@ -201,4 +201,4 @@ print(nx.number_connected_components(classesNeeded.g))
 
 3
 
-**Interpretation of Results**: The printed number 3 represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.
+**Interpretation of Results**: The number 3 represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.
