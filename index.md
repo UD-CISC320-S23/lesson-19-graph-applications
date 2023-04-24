@@ -13,7 +13,20 @@ The second graph is based on courses and their prerequisites. By using algorithm
 
 Overall, our project aims to provide solutions to a variety of campus problems by leveraging the power of algorithms and graph theory. By utilizing these tools, we can optimize routes, identify potential scheduling conflicts, and ultimately make life on campus a little bit easier for everyone.
 
+## Installation Code
 
+```sh
+$> pip install networkx
+```
+
+## Python Environment Setup
+
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+import locationGraph
+import classesNeeded
+```
 
 # Building Walkways
 
@@ -60,7 +73,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](./locationGraph.png)
+![Graph of important buildings on UDel Campus](./locationGraph.png "UDel campus location graph")
 
 **Solution code:**
 
@@ -75,7 +88,7 @@ plt.show()
 
 **Output**
 
-![Image goes here](./PrimsPathFinal.png)
+![Prims algorithm output graph](./PrimsPathFinal.png "MST of UD campus")
 
 **Interpretation of Results**: This is an MST generated from the graph of campus. In other words, this shows us a way to connect all the vertices from campus together using the minimum possible total edge weight. So if the contractor wanted to build pathways using the least amount of materials he would follow this MST.
 
@@ -94,7 +107,7 @@ plt.show()
 
 ```python
 class locationGraph: 
-    import networkx as nx
+
 
     g = nx.Graph()
     g.add_edge("Frazer Field", "Lil Bob", weight = 1)
@@ -122,7 +135,7 @@ class locationGraph:
 
 **Visualization**:
 
-![Graph of important building on UDel Campus](./graphviz.png "UDel campus location graph")
+![Graph of important buildings on UDel Campus](./graphviz.png "UDel campus location graph")
 
 **Solution code:**
 
@@ -189,15 +202,9 @@ class classesNeeded:
 **Solution code:**
 
 ```python
-
-import networkx as nx
-import classesNeeded
-
-
 dfsEdges = nx.edge_dfs(classesNeeded.g,source=None, orientation=None)
 DfsList = list(dfsEdges)
 print(DfsList)
-
 ```
 
 **Output**
