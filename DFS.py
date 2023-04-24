@@ -19,5 +19,6 @@ nx.draw(g,node_color = "red",with_labels=True, node_size= 330 )
 plt.show()
 '''
 
-
-print({nx.number_connected_components(classesNeeded.g)})
+dfsEdges = nx.edge_dfs(classesNeeded.g,source=None, orientation=None)
+DfsList = list(dfsEdges)
+print(DfsList)

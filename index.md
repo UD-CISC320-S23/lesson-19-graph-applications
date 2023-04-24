@@ -199,6 +199,6 @@ print(nx.number_connected_components(classesNeeded.g))
 
 **Output**
 
-3
+[('CISC108', 'CISC181'), ('CISC108', 'CISC210'), ('CISC210', 'CISC275'), ('CISC275', 'CISC474'), ('CISC210', 'CISC220'), ('CISC220', 'CISC320'), ('CISC320', 'MATH210'), ('MATH210', 'MATH241'), ('CISC220', 'CISC361'), ('CISC361', 'CISC260'), ('CISC260', 'CISC210'), ('CISC260', 'CISC372'), ('CISC372', 'CISC220'), ('CISC220', 'CISC304'), ('ENGL110', 'ENGL410'), ('GEOL105L', 'GEOL107'), ('GEOL107', 'GEOL107L'), ('GEOL105L', 'GEOL105'), ('CISC450', 'CISC459')]
 
-**Interpretation of Results**: The number 3 represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.
+**Interpretation of Results**: The list represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.
