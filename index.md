@@ -187,7 +187,7 @@ class classesNeeded:
 
 
 **Visualization**:
-![Image goes here] (./DFS-Graph.png)
+![Image goes here](./DFS-Graph.png)
 
 **Solution code:**
 
