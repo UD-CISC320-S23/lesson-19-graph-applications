@@ -15,13 +15,13 @@ Overall, our project aims to provide solutions to a variety of campus problems b
 
 
 
-# Prim's Algorithm
+# Prims Pathway
 
-**Informal Description**: 
+**Informal Description**: A contractor has decided to build walkways between locations on UD campus. Help the contractor find a way to build the walkways connecting locations using the least amount of materials.
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: Graph of locations of the Udel Campus, with weights representing the distance from one node to another.
+>  * Output: An MST of the Udel Campus 
 
 **Graph Problem/Algorithm**: MST (Prims)
 
@@ -77,14 +77,14 @@ plt.show()
 
 ![Image goes here](./PrimsPathFinal.png)
 
-**Interpretation of Results**:
+**Interpretation of Results**: This is an MST generated from the graph of campus. In other words, this shows us a way to connect all the vertices from campus together using the minimum possible total edge weight. So if the contractor wanted to build pathways using the least amount of materials he would follow this MST.
 
 # Campus Shortest Path Problem
 
 **Shortest Path Problem**: A student want's to figure out the fastest way to get from one building on campus to another. It's integral for them to find the fastest path as they are late for a meeting. Help the student find the shortest path from their current location to their meeting location. 
 
 > **Formal Description**:
->  * Input: Graph of locations of the Udel Campus, withe weights representing the distance from one node to another. 
+>  * Input: Graph of locations of the Udel Campus, with weights representing the distance from one node to another. 
 >  * Output: A path of the shortest distance from the start to the target location. 
 
 **Graph Problem/Algorithm**: Dijkstra's Algorithm
@@ -92,7 +92,7 @@ plt.show()
 
 **Setup code**:
 
-```
+```python
 class locationGraph: 
     import networkx as nx
 
@@ -126,7 +126,7 @@ class locationGraph:
 
 **Solution code:**
 
-```
+```python
 class dijkstra: 
     import networkx as nx
     import locationGraph
@@ -138,24 +138,23 @@ class dijkstra:
 
 **Output**
 
-```
+```python
 To get from Willard to Perkins using the shortest path you need to follow this path:     
         ['Willard Hall', 'Trabant', 'Sharp Lab', 'Gore', 'Memorial', 'Morris', 'Perkins']
 ```
 
 **Interpretation of Results**: If a student located at Willard Hall wants to travel to reach Perkins as fast as possible they would have to follow this path, ['Willard Hall', 'Trabant', 'Sharp Lab', 'Gore', 'Memorial', 'Morris', 'Perkins']. This is the shortest path from Willard to perkins and would therefore take the shortest amount of time. 
 
-# Third Problem Title
+# FIND COURSES NEEDED FOR BS COMPUTER SCIENCE MAJOR
 
-FIND COURSES NEEDED FOR BS COMPUTER SCIENCE MAJOR
 **Informal Description**: 
-
 Find courses needed problem: Iterates through all nodes and edges to find all the classes on the graph that a computer science student needs to take. It then groups up all of these classes through their connections and shows what classes a student needs to take in each subject breaking down enlgish, science, and math/computer science. This is important because if a student needs to know what classes to take, this graph and DFS algorithm shows the student the order of which classes to take.
+
 > **Formal Description**:
 >  * Input: Graph of classes, with same topic/pre-req nodes connected to eachoteher
 >  * Output: 3 seperate groups of connected nodes representing which pre-reqs to take for which class, and the specific classes to take for each subject.
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
-**Graph Problem/Algorithm**: [DFS]
+
+**Graph Problem/Algorithm**: DFS
 
 
 **Setup code**:
@@ -202,7 +201,7 @@ print(DfsList)
 ```
 
 **Output**
-
+```python
 [('CISC108', 'CISC181'), ('CISC108', 'CISC210'), ('CISC210', 'CISC275'), ('CISC275', 'CISC474'), ('CISC210', 'CISC220'), ('CISC220', 'CISC320'), ('CISC320', 'MATH210'), ('MATH210', 'MATH241'), ('CISC220', 'CISC361'), ('CISC361', 'CISC260'), ('CISC260', 'CISC210'), ('CISC260', 'CISC372'), ('CISC372', 'CISC220'), ('CISC220', 'CISC304'), ('ENGL110', 'ENGL410'), ('GEOL105L', 'GEOL107'), ('GEOL107', 'GEOL107L'), ('GEOL105L', 'GEOL105'), ('CISC450', 'CISC459')]
-
+```
 **Interpretation of Results**: The list represents the different subjects and the pathway of the classes you must take. So for example to take ENGL410, you must take ENGL110 first. Also it seperates subjects that do not correlate with eachother. For example, science(geology) pre-reqs do not affect the ability to take any of the computer science or math classes, but to take some of the math and computer science classes, you must take certain pre-reqs in that subject.
