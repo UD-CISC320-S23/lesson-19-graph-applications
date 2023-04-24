@@ -1,5 +1,4 @@
-
-
+from networkx.algorithms import tree
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -99,9 +98,6 @@ nx.draw_networkx_edges(T, pos, edge_color="red", width=2)
 plt.axis("off")
 plt.show()
 
-print(T)
-
-#G=nx.cycle_graph(4)
-#G.add_edge(0,3,weight=2) # assign weight 2 to edge 0-3
-#T=nx.minimum_spanning_tree(G)
-#print(sorted(T.edges(data=True)))
+mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+edgelist = list(mst)
+print(edgelist)
