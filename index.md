@@ -277,6 +277,14 @@ print(nx.dijkstra_path(G, "Castle", "WitchHut", weight='weight'))
 This means that the shortest path from the Castle to the WitchHut is Castle->Guardpost2->Stables->TradePost->Well->Cottage3->Cottage5->Cottage6->Cottage?->MysteryShack->WitchHut
 
 
+
+
+**Graph Problem/Algorithm**: [MST]
+Prims Algorithm
+**Visualization**:
+
+![Image goes here](before_prims.png)
+
 **Informal Description**: 
 A notorious witch lives in the town of Cisc, and she gives King Algo the heebeijeebeis. The King is nervous that the Witch may poison the water supply,
 so he asked his most trustworthy Mathemagician, Chatus Gptus to determine which roads would provide the shortest network of roads that he can use to travel within town to reduce the chances of interaction with the big bad witch.
@@ -288,12 +296,6 @@ finding the mst of all connections. where all the vertex are connected with the 
 Determine the MST between all nodes within the graph without any loops
 >  * Input: G(V, E): Graph of Vertices and Edges
 >  * Output: List: List of Nodes in the Shortest Path
-
-**Graph Problem/Algorithm**: [MST]
-Prims Algorithm
-**Visualization**:
-
-![Image goes here](before_prims.png)
 
 
 **Setup code**:
