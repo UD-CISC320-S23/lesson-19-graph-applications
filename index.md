@@ -15,7 +15,7 @@ Overall, our project aims to provide solutions to a variety of campus problems b
 
 
 
-# Prims Pathway
+# Building Walkways
 
 **Informal Description**: A contractor has decided to build walkways between locations on UD campus. Help the contractor find a way to build the walkways connecting locations using the least amount of materials.
 
