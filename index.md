@@ -122,6 +122,7 @@ print(edgelist)
 
 ```
 [('Caffe Gelato', "Mama's Pizza & Pasta"), ("Mama's Pizza & Pasta", 'Oishii Sushi & Ramen'), ("Mama's Pizza & Pasta", 'Santa Fe'), ('Santa Fe', 'May Flower'), ('May Flower', 'El Diablo'), ('Oishii Sushi & Ramen', 'Deer Park Tavern'), ('El Diablo', 'Home Grown'), ('Oishii Sushi & Ramen', 'Indian Sizzler'), ('Home Grown', 'm2o Burgers'), ('m2o Burgers', "Klondike Kate's"), ("Klondike Kate's", 'Snap Custom Pizza'), ('Snap Custom Pizza', 'Playa Bowls'), ('Playa Bowls', '2SPizza'), ('2SPizza', 'Five Guys'), ('Five Guys', 'Taverna Newark'), ('El Diablo', 'QDOBA'), ('El Diablo', 'Honey Grow'), ('Honey Grow', 'Roots'), ('Roots', "Hamilton's")]
+![MST Graph of Lowest Cost Path](prims_mst.png)
 ```
 
 **Interpretation of Results**:

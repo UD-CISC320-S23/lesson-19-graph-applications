@@ -78,14 +78,15 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels)
 ax = plt.gca()
 ax.margins(0.02)
 
+mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+m = tree.minimum_spanning_tree(G)
+edgelist = list(mst)
+sorted(sorted(e) for e in edgelist)
+nx.draw_networkx_edges(m, pos, edge_color="purple", width=3)
+print(edgelist)
 plt.axis("off")
 plt.tight_layout()
 plt.show()
-
-mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
-edgelist = list(mst)
-sorted(sorted(e) for e in edgelist)
-print(edgelist)
 
 
 #print(mst)
