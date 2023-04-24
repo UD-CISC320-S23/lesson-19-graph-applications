@@ -277,8 +277,6 @@ print(nx.dijkstra_path(G, "Castle", "WitchHut", weight='weight'))
 This means that the shortest path from the Castle to the WitchHut is Castle->Guardpost2->Stables->TradePost->Well->Cottage3->Cottage5->Cottage6->Cottage?->MysteryShack->WitchHut
 
 
-Added by Farhan
-
 **Informal Description**: 
 A notorious witch lives in the town of Cisc, and she gives King Algo the heebeijeebeis. The King is nervous that the Witch may poison the water supply,
 so he asked his most trustworthy Mathemagician, Chatus Gptus to determine which roads would provide the shortest network of roads that he can use to travel within town to reduce the chances of interaction with the big bad witch.
@@ -287,7 +285,7 @@ finding the mst of all connections. where all the vertex are connected with the 
 
 
 > **Formal Description**:
-Determine the shortest path between two nodes in a graph. 
+Determine the MST between all nodes within the graph without any loops
 >  * Input: G(V, E): Graph of Vertices and Edges
 >  * Output: List: List of Nodes in the Shortest Path
 
@@ -390,15 +388,19 @@ T = nx.minimum_spanning_tree(G)
 
 # Visualize the graph and the minimum spanning tree
 pos = nx.spring_layout(G)
-nx.draw_networkx_nodes(G, pos, node_color="lightblue", node_size=300)
-nx.draw_networkx_edges(G, pos, edge_color="grey")
+nx.draw_networkx_nodes(G, pos, node_color="purple", node_size=600)
+nx.draw_networkx_edges(G, pos, edge_color="black")
 nx.draw_networkx_labels(G, pos, font_size=10, font_family="sans-serif")
 nx.draw_networkx_edge_labels(
     G, pos, edge_labels={(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 )
-nx.draw_networkx_edges(T, pos, edge_color="green", width=5)
+nx.draw_networkx_edges(T, pos, edge_color="red", width=2)
 plt.axis("off")
 plt.show()
+
+mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+edgelist = list(mst)
+print(edgelist)
 
 
 
@@ -407,7 +409,27 @@ plt.show()
 ![Image goes here](mst_prim_updated.png)
 Shows the updated graph with red lines displaying the MST
 
+[('Stables', 'Guardpost2'), ('Stables', 'TradePost'), ('TradePost', 'FarmersMarket'), ('FarmersMarket', 'FlowerShop'), ('FarmersMarket', 'FishMarket'), ('Guardpost2', 'Manor'), ('TradePost', 'Well'), ('Well', 'Cottage3'), ('Cottage3', 'Cottage7'), ('Cottage3', 'Cottage4'), ('Cottage3', 'Cottage5'), ('Cottage7', 'Cottage8'), ('Cottage4', 'Saloon'), ('Cottage5', 'Hospital'), ('Hospital', 'Cottage6'), ('Cottage6', 'Cottage?'), ('FishMarket', 'Dock'), ('Manor', 'Guardpost1'), ('Well', 'Monastary'), ('Monastary', 'Piazza'), ('Piazza', 'School'), ('Piazza', 'Observatory'), ('Piazza', 'Cottage1'), ('School', 'Cottage2'), ('Guardpost2', 'Castle'), ('Cottage?', 'MysteryShack'), ('MysteryShack', 'WitchHut')]
+
 
 **Interpretation of Results**:
-Without any cycles that is the connection of all the points
+Without any cycles this is the connection of all the points in the 
+most efficient way to connect all the locations with the minimum amount of travel or distance.
+
+The MST consists of the following connections:
+
+Stables - Guardpost2
+Guardpost2 - Manor
+Manor - Guardpost1
+Guardpost2 - Castle
+Castle - TradePost
+TradePost - Well
+Well - Monastery
+Monastery - Piazza
+Piazza - School
+School - Cottage2
+Cottage2 - Cottage1
+Cottage1 - Observatory
+Observatory - MysteryShack
+MysteryShack - WitchHut
 
