@@ -1,5 +1,5 @@
 import networkx as nx
-
+import matplotlib.pyplot as plt
 # digraph Udel {
     
 #    Frazer_field -> Lil_bob [dir=none] d
@@ -49,3 +49,11 @@ g.add_edges_from([("ICE", "Penny"), ("ICE", "Colburn"), ("ICE", "Spencer Lab")],
 g.add_edge("Spencer Lab", "Colburn", weight = 2)
 g.add_edges_from([("Allison", "Perkins"), ("Allison", "Penny")], weight = 4)
 
+# edge_labels = nx.get_edge_attributes(g, 'weight')
+# nx.draw_networkx_edge_labels(g, pos, edge_labels=edge_labels)
+# plt.show()
+
+# test, morris-> allison-> penny
+#print(nx.shortest_path(g, "Morris", "Penny", weight = "weight"))
+
+#testing merge
