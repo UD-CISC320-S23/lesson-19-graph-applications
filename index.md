@@ -173,8 +173,8 @@ class classesNeeded:
     g = nx.Graph()
     g.add_edge("CISC108", "CISC181")
     g.add_edges_from([("CISC210", "CISC275"), ("CISC210", "CISC220"), ("CISC210", "CISC260")])
-    g.add_edges("CISC108", "CISC210", weight = 2)
-    g.add_edge("MATH210", "CISC320" weight = 3)
+    g.add_edge("CISC108", "CISC210")
+    g.add_edge("MATH210", "CISC320")
     g.add_edges_from([("CISC220", "CISC320"), ("CISC220", "CISC361"), ("CISC220", "CISC304"),("CISC220","CISC372")])
     g.add_edges_from([("CISC260", "CISC361"), ("CISC260", "CISC372")])
     g.add_edge("MATH241", "MATH210")
@@ -183,8 +183,9 @@ class classesNeeded:
     g.add_edge("GEOL105", "GEOL105L")
     g.add_edge("GEOL107", "GEOL107L")
     g.add_edge("CISC275", "CISC474")
-    nx.draw(G,node_color = "red",with_labels=True, node_size= 330 )
-
+    g.add_edges_from([("CISC181", "CISC250"), ("CISC250", "CISC450"),("CISC450", "CISC459")])
+    nx.draw(g,node_color = "red",with_labels=True, node_size= 330 )
+    plt.show()
 ```
 
 **Visualization**:
@@ -197,7 +198,10 @@ class classesNeeded:
 import networkx as nx
 import classesNeeded
 
-print(nx.number_connected_components(classesNeeded.g))
+
+dfsEdges = nx.edge_dfs(classesNeeded.g,source=None, orientation=None)
+DfsList = list(dfsEdges)
+print(DfsList)
 
 ```
 
