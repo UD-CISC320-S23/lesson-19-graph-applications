@@ -113,16 +113,34 @@ plt.show()
 
 ```
 mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+m = tree.minimum_spanning_tree(G)
 edgelist = list(mst)
 sorted(sorted(e) for e in edgelist)
+nx.draw_networkx_edges(m, pos, edge_color="purple", width=3)
 print(edgelist)
+plt.axis("off")
+plt.tight_layout()
+plt.show()
 ```
+
 
 **Output**
 
-```
-[('Caffe Gelato', "Mama's Pizza & Pasta"), ("Mama's Pizza & Pasta", 'Oishii Sushi & Ramen'), ("Mama's Pizza & Pasta", 'Santa Fe'), ('Santa Fe', 'May Flower'), ('May Flower', 'El Diablo'), ('Oishii Sushi & Ramen', 'Deer Park Tavern'), ('El Diablo', 'Home Grown'), ('Oishii Sushi & Ramen', 'Indian Sizzler'), ('Home Grown', 'm2o Burgers'), ('m2o Burgers', "Klondike Kate's"), ("Klondike Kate's", 'Snap Custom Pizza'), ('Snap Custom Pizza', 'Playa Bowls'), ('Playa Bowls', '2SPizza'), ('2SPizza', 'Five Guys'), ('Five Guys', 'Taverna Newark'), ('El Diablo', 'QDOBA'), ('El Diablo', 'Honey Grow'), ('Honey Grow', 'Roots'), ('Roots', "Hamilton's")]
 ![MST Graph of Lowest Cost Path](prims_mst.png)
+```
+Number of nodes =  20
+Number of edges =  30
+[('Indian Sizzler', 'Oishii Sushi & Ramen'), ('Oishii Sushi & Ramen', "Mama's Pizza & Pasta"),
+("Mama's Pizza & Pasta", 'Santa Fe'), ('Santa Fe', 'May Flower'),
+('May Flower', 'El Diablo'), ('Oishii Sushi & Ramen', 'Deer Park Tavern'),
+('El Diablo', 'Home Grown'), ('Home Grown', 'm2o Burgers'),
+('m2o Burgers', "Klondike Kate's"), ("Mama's Pizza & Pasta", 'Caffe Gelato'),
+("Klondike Kate's", 'Snap Custom Pizza'), ('Snap Custom Pizza', 'Playa Bowls'),
+('Playa Bowls', '2SPizza'), ('2SPizza', 'Five Guys'), ('Five Guys', 'Taverna Newark'),
+('El Diablo', 'QDOBA'), ('El Diablo', 'Honey Grow'), ('Honey Grow', 'Roots'),
+('Roots', "Hamilton's")]
 ```
 
 **Interpretation of Results**:
+The result of this function shows the minimal path (purple) to visit all the locations (resturants)
+with the least cost.
