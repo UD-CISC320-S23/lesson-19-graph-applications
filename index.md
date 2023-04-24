@@ -103,7 +103,7 @@ class locationGraph:
 
 **Visualization**:
 
-![Graph of important building on UDel Campus](/graphviz.png "UDel campus location graph")
+![Graph of important building on UDel Campus](./graphviz.png "UDel campus location graph")
 
 **Solution code:**
 
