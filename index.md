@@ -3,11 +3,7 @@
 Group Members:
 * Rohan Yarlagadda (rohany@udel.edu)
 * Avinash Chouhan (avinashc@udel.edu)
-* Third member (email)
-* Fourth member (email)
 * Ameer Abdelnasser (ameernas@udel.edu)
-* Rohan Yarlagadda (rohany@udel.edu)
-* Avinash Chouhan (avinashc@udel.edu)
 
 The focus of our project is to address various campus problems at the University of Delaware using algorithms such as Dijkstra, Prim's, and DFS. To accomplish this, we have developed two separate graphs that can be used to model and solve different types of problems.
 
