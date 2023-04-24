@@ -280,7 +280,9 @@ This means that the shortest path from the Castle to the WitchHut is Castle->Gua
 
 
 **Graph Problem/Algorithm**: [MST]
+
 Prims Algorithm
+
 **Visualization**:
 
 ![Image goes here](before_prims.png)
@@ -301,6 +303,11 @@ Determine the MST between all nodes within the graph without any loops
 **Setup code**:
 
 ```python
+
+from networkx.algorithms import tree
+import networkx as nx
+import matplotlib.pyplot as plt
+
 
 
 G = nx.Graph()
@@ -434,4 +441,3 @@ Cottage2 - Cottage1
 Cottage1 - Observatory
 Observatory - MysteryShack
 MysteryShack - WitchHut
-
