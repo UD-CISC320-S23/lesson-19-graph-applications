@@ -183,7 +183,7 @@ class classesNeeded:
 
 
 **Visualization**:
-![Image goes here](./DFS-Graph.png)
+![DFS graph image](DFS-Graph.png)
 
 **Solution code:**
 
