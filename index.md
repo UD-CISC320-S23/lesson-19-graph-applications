@@ -250,13 +250,12 @@ The new flight rewards program has been designed to provide its customers with g
 **Formal Description**:
  * Input: 
     * A directed graph, with the nodes/vertices being tiers.
- * Output1: A dictionary representing the possible paths
- * Output2: A list of cycles in the graph
+ * Output1: A dictionary representing the possible paths and A list of cycles in the graph
 
  **Graph Problem/Algorithm**: DFS
 
  **Setup Code**:
-
+```python
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -292,6 +291,7 @@ plt.savefig("graph_for_dfs.png")
 ![DFS graph](graph_for_dfs.png)
 
  **Solution Code**
+```python
 for node in tierGraph:
     print(node + ": ", end="")
     node_connections = dict(nx.dfs_successors(tierGraph, node))
@@ -322,52 +322,55 @@ def find_cycles(graph):
 
 cycles = find_cycles(tierGraph)
 
-# print the cycles found
+print the cycles found
 print("Cycles in the graph:")
 for cycle in cycles:
     print(cycle)
 
+```
+
 **Output**
 
-Bronze: Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+* Bronze: Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
 
-Bronze+: Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+* Bronze+: Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
 
-Silver: Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+* Silver: Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
 
-Silver+: Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+* Silver+: Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
 
-Gold: Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Gold: Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Gold+: Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Gold+: Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Delta: Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Delta: Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Ruby: Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Ruby: Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Ruby+: Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Ruby+: Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Sapphire: Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Sapphire: Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Sapphire+: Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+* Sapphire+: Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
 
-Platinum: Diamond -> Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
+* Platinum: Diamond -> Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
 
-Diamond: Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
+* Diamond: Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
 
-Elite: Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Premier -> Premier+ -> Max ->   
+* Elite: Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Premier -> Premier+ -> Max ->   
 
-Elite+: MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> PlatMVP+: Max ->
+* Elite+: MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> PlatMVP+: Max ->
 
-Max:
+* Max:
 
 ------------------------------------------------------------------
 
-Cycles in the graph:
-['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Ruby', 'Ruby+', 'Sapphire', 'Sapphire+', 'Bronze']
-['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Platinum', 'Diamond', 'Elite', 'Elite+', 'MVP', 'Bronze']
-['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Gamma', 'Premier', 'Bronze']     
-['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Bronze']
+* Cycles in the graph:
+* ['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Ruby', 'Ruby+', 'Sapphire', 'Sapphire+', 'Bronze']
+* ['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Platinum', 'Diamond', 'Elite', 'Elite+', 'MVP', 'Bronze']
+* ['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Gamma', 'Premier', 'Bronze']     
+* ['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Bronze']
+
 
  **Interpretation of Results**:
 The code generates a graph representing a rewards program, where each tier is represented by a node in the graph. Using depth-first enables the company to traverse the graph and print out the nodes in the order they were visited.
