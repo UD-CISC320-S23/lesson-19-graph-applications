@@ -6,7 +6,7 @@ Group Members:
 * Paul Kearney (paulke@udel.edu)
 * Jon O'Connell (jjoc@udel.edu)
 * Daniel DeFlores (deflores@udel.edu)
-* Fourth member (email)
+* Pranav Kamath (pkama@udel.edu)
 
 Description of project
 
@@ -25,11 +25,12 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# busing in CA
+# Busing in CA
 **Informal Description**: 
 A tour bus company based in LA wants to map out new routes and want to stop as often as possible to
 pick up new travelers, but also stop at every popular tourist destination. in order to do this, the tour bus 
 company wants to pick routes such that the bus drives on the shortest road to get to each location.
+
 > **Formal Description**:
 >  * Input: An undirected graph of tourist destinations. edges being roads that connect destinations,vertices 
 >  * the destinations themselves.
@@ -241,3 +242,133 @@ for destination in possible_destinations:
 **Interpretation of Results**:
 The resulting dictionary contains key value pairs for each node and its respective list of other nodes that it is connected to. 
 That is, which destinations can be accessed from a given train departure location. Each key value pair is output.
+
+# Rewards Program Tiers
+**Informal Description**:
+The new flight rewards program has been designed to provide its customers with greater benefits as they progress through its various tiers. Each tier offers more significant advantages than the previous one. The retailer has established a total of 20 tiers in its rewards program, starting from Bronze and moving all the way up to the highest tier, MVP+. To help our customers, we want to show how they can advance quickly through our tier system paths. Furthermore, paths exist within the graphwe have an exploit where cycles lets our customers take advantage of our system, so we implemented a way to detect it. 
+
+**Formal Description**:
+ * Input: 
+    * A directed graph, with the nodes/vertices being tiers.
+ * Output1: A dictionary representing the possible paths
+ * Output2: A list of cycles in the graph
+
+ **Graph Problem/Algorithm**: DFS
+
+ **Setup Code**:
+
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Initializes the graph
+tierGraph = nx.DiGraph()
+
+# Adds each tier vertex on the graph reading from the node file
+tier_nodes = open("rewards_tiers.txt")
+tier_nodes = tier_nodes.read().split()
+
+for node in tier_nodes:
+    tierGraph.add_node(node)
+
+# Add each edge in the graph from another file in the form : node1 -> node2 = node1,node2
+tier_edges = open("rewards_tiers_edges.txt")
+tier_edges = tier_edges.read().split()
+i = 0
+for edge in tier_edges:
+    tier_edges[i] = edge.split(",")
+    i+=1
+for edge in tier_edges:
+    tierGraph.add_edge(edge[0],edge[1])
+
+# Create a visualization of the graph
+pos = nx.spring_layout(tierGraph)
+plt.figure(15,figsize=(10,10))
+nx.draw_networkx_edges(tierGraph, pos)
+nx.draw_networkx(tierGraph,pos, node_size=100, font_size=15)
+plt.savefig("graph_for_dfs.png")
+
+**Visualization**:
+
+![DFS graph](graph_for_dfs.png)
+
+ **Solution Code**
+for node in tierGraph:
+    print(node + ": ", end="")
+    node_connections = dict(nx.dfs_successors(tierGraph, node))
+    for stop in node_connections:
+        print(" -> ".join(list(node_connections[stop])) + " -> ", end="")
+    print("\n")
+
+print("------------------------------------------------------------------"+"\n")
+
+# check for cycles in the graph
+def find_cycles(graph):
+    cycles = []
+    visited = set()
+
+    def dfs(node, path):
+        visited.add(node)
+
+        for neighbor in graph.neighbors(node):
+            if neighbor not in visited:
+                dfs(neighbor, path + [neighbor])
+            elif neighbor == path[0]:
+                cycles.append(path + [neighbor])
+
+    for node in graph.nodes():
+        dfs(node, [node])
+
+    return cycles
+
+cycles = find_cycles(tierGraph)
+
+# print the cycles found
+print("Cycles in the graph:")
+for cycle in cycles:
+    print(cycle)
+
+**Output**
+
+Bronze: Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+
+Bronze+: Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+
+Silver: Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+
+Silver+: Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ -> 
+
+Gold: Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Gold+: Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Delta: Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Ruby: Ruby+ -> Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Ruby+: Sapphire -> Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Sapphire: Sapphire+ -> Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Sapphire+: Bronze -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Diamond -> Elite -> Elite+ -> MVP -> MVP+ -> Max -> Premier -> Premier+ ->   
+
+Platinum: Diamond -> Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
+
+Diamond: Elite -> Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Premier -> Premier+ -> Max ->   
+
+Elite: Elite+ -> MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> Platinum -> Gamma -> Ruby+ -> Sapphire -> Sapphire+ -> Diamond -> Premier -> Premier+ -> Max ->   
+
+Elite+: MVP -> Bronze -> MVP+ -> Bronze+ -> Silver -> Silver+ -> Gold -> Gold+ -> Delta -> Ruby -> PlatMVP+: Max ->
+
+Max:
+
+------------------------------------------------------------------
+
+Cycles in the graph:
+['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Ruby', 'Ruby+', 'Sapphire', 'Sapphire+', 'Bronze']
+['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Platinum', 'Diamond', 'Elite', 'Elite+', 'MVP', 'Bronze']
+['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Gamma', 'Premier', 'Bronze']     
+['Bronze', 'Bronze+', 'Silver', 'Silver+', 'Gold', 'Gold+', 'Delta', 'Bronze']
+
+ **Interpretation of Results**:
+The code generates a graph representing a rewards program, where each tier is represented by a node in the graph. Using depth-first enables the company to traverse the graph and print out the nodes in the order they were visited.
+There are also cycles in the graph, which indicate that it is possible to loop back to previous tiers in the rewards program.
