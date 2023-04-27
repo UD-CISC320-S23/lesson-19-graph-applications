@@ -279,6 +279,7 @@ for edge in tier_edges:
 for edge in tier_edges:
     tierGraph.add_edge(edge[0],edge[1])
 
+
 # Create a visualization of the graph
 pos = nx.spring_layout(tierGraph)
 plt.figure(15,figsize=(10,10))
@@ -286,12 +287,13 @@ nx.draw_networkx_edges(tierGraph, pos)
 nx.draw_networkx(tierGraph,pos, node_size=100, font_size=15)
 plt.savefig("graph_for_dfs.png")
 
+```
 **Visualization**:
 
 ![DFS graph](graph_for_dfs.png)
 
  **Solution Code**
-```python
+``` python
 for node in tierGraph:
     print(node + ": ", end="")
     node_connections = dict(nx.dfs_successors(tierGraph, node))
