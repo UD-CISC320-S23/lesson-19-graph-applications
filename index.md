@@ -6,7 +6,7 @@ Group Members:
 * First member aoster@udel.edu
 * Second member adtrunzo@udel.edu
 * Third member farhanto@udel.edu
-* Fourth member (email)
+* Fourth member ajsilva@udel.edu
 
 Description of project
 
@@ -23,7 +23,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 ```
 
-# First Problem Title
+# DFS Algorithm Problem Graph
 DFS on FriendShip Graph to Determine Number of Groups (Connected Components) In 
 Ancient Kingdom.
 **Informal Description**: 
@@ -151,7 +151,7 @@ print(nx.number_connected_components(G))
 This means that there are 5 different connected graphs. This means that there are 5 different social groups and people are disconnected from one another. It is interesting to see how is more connected to each other than other types of people.
 
 
-
+# Djiktsra's Algorithm Problem Graph
 
 
 **Informal Description**: 
@@ -277,6 +277,7 @@ print(nx.dijkstra_path(G, "Castle", "WitchHut", weight='weight'))
 This means that the shortest path from the Castle to the WitchHut is Castle->Guardpost2->Stables->TradePost->Well->Cottage3->Cottage5->Cottage6->Cottage?->MysteryShack->WitchHut
 
 
+# Prims Algorithm Problem Graph
 
 
 **Graph Problem/Algorithm**: [MST]
