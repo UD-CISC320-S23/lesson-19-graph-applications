@@ -170,7 +170,7 @@ Dijkstra's Algorithm
 
 **Visualization**:
 
-![Image goes here](Shortest_Path.png)
+![Image goes here](town_of_cisc.png)
 
 
 **Setup code**:
@@ -286,7 +286,7 @@ Prims Algorithm
 
 **Visualization**:
 
-![Image goes here](before_prims.png)
+![Image goes here](town_of_cisc.png)
 
 **Informal Description**: 
 A notorious witch lives in the town of Cisc, and she gives King Algo the heebeijeebeis. The King is nervous that the Witch may poison the water supply,
